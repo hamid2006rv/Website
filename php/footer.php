@@ -1,0 +1,42 @@
+ <footer class='main-footer'>
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-4 col-sm-6 col-xs-6 footer-list">
+                	<h4>دسترسی سریع</h4>
+                    <ul>
+                    <li><a href='#'>تقویم آموزشی</a></li>
+                    <li><a href='#'>اعضای هیات علمی</a></li>
+                    <li><a href='#'>اطلاعیه ها</a></li>
+                    <li><a href='#'>کتابخانه</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6 footer-list">
+                	<h4>پیوندها</h4>
+                    <ul>
+                    <li><a href='#'>وزارت علوم تحقیقات و فناوری</a></li>
+                    <li><a href='#'>دانشگاه اصفهان</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-md-offset-1 col-sm-12">
+                	<a href="/"><img src='img/logo-invert.png'></a>
+                    <ul style='margin:5px;'>
+                    	<li>اصفهان   سپاهان شهر   انتهای بلوار غدیر   بلوار پاسداران جنوبی   موسسه آموزش عالی علوم و فناوری سپاهان</li>
+                        <li>تلفن: <span>۰۳۱۳۶۵۳۰۲۴۱</span></li>
+                        <li>فاکس: <span>۰۳۱۳۶۵۳۰۲۴۵</span></li>
+                        <li>پست الکترونیک: <span>info@sepahan.ac.ir</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-xs-12">
+                	کلیه حقوق این سایت متعلق به موسسه ٱموزش عالی فناوری سپاهان می باشد &copy;
+                    [تعداد بازدید:1000]
+                </div>
+            </div>
+        </div>
+    </footer>
+	<script src='./js/jquery.min.js'></script>
+	<script src='./js/bootstrap.min.js'></script>
+    <script src='./js/text_type.js'></script>
+	</body>
+</html>
