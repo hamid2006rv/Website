@@ -52,8 +52,8 @@
                         </a>
                     </h1>
                  </div>
-                <div class='col-xs-6' > 
-                	
+                <div class='col-xs-1 pull-left hidden-xs' style='padding:0;'> 
+                	<img  src='img/iranflag.png' alt='پرچم ایران' style='height:90px;border-radius: 0;float:left;'>
                 </div>
             </div>
             <div class='row hidden-xs'>
