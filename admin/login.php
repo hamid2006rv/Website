@@ -25,7 +25,7 @@
 </head>
 
 <body dir='rtl'> 
-
+test
 <div id='content'>
 	<h1>ورود به سایت موسسه آموزش عالی سپاهان</h1>
     <form method='post' action="<?=$_SERVER['PHP_SELF']?>">

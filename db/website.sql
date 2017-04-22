@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2017 at 10:08 AM
+-- Generation Time: Apr 22, 2017 at 12:34 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -41,17 +41,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `attachment3` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `views` int(11) DEFAULT NULL,
   UNIQUE KEY `nid` (`nid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`nid`, `ntitle`, `ndesc`, `orgid`, `uid`, `ndate`, `day_week`, `attachment1`, `attachment2`, `attachment3`, `views`) VALUES
-(1, 'تشکیل نشدن کلاس های استاد گلعذار روز یکشنبه 95/12/8', 'تشکیل نشدن کلاس های استاد گلعذار روز یکشنبه 95/12/8. جبرانی آن متعاقباً اعلام خواهد شد.', 1, NULL, '1395-12-27', 3, NULL, NULL, NULL, NULL),
-(2, 'تشکیل نشدن کلاس کاربرد رایانه در برق استاد طاهری روز دوشنبه 95/12/2', NULL, 1, NULL, '1395-12-08', 0, NULL, NULL, NULL, NULL),
-(3, 'قابل توجه دانشجویانی که وام قرض الحسنه برای شهریه دریافت کرده اند', 'دانشجویانی که وام قرض الحسنه برای شهریه دریافت کرده اند نسبت به پرداخت قسط اول آن اقدام نمایند.', 1, NULL, '1395-11-30', 0, NULL, NULL, NULL, NULL),
-(4, 'قابل توجه دانشجویانی که وام قرض الحسنه برای شهریه دریافت کرده اند', 'دانشجویانی که وام قرض الحسنه برای شهریه دریافت کرده اند نسبت به پرداخت قسط اول آن اقدام نمایند.', 1, NULL, '1395-11-30', 1, NULL, NULL, NULL, NULL);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 -- --------------------------------------------------------
 
@@ -72,6 +62,23 @@ CREATE TABLE IF NOT EXISTS `organization` (
 
 INSERT INTO `organization` (`id`, `name`, `top_id`) VALUES
 (1, 'آموزش', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE IF NOT EXISTS `settings` (
+  `num_visited` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`num_visited`) VALUES
+(1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

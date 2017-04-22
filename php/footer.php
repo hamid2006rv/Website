@@ -30,7 +30,14 @@
             <div class="row">
             	<div class="col-xs-12">
                 	کلیه حقوق این سایت متعلق به موسسه ٱموزش عالی فناوری سپاهان می باشد &copy;
-                    [تعداد بازدید:1000]
+                    [تعداد بازدید: <?php 
+					   $result=mysql_query("select * from settings");
+					   $row=mysql_fetch_assoc($result);
+					   $n= $row['num_visited'];
+					   $n++;
+					   mysql_query("update settings set num_visited=$n"); 
+					   echo number_format($n);	
+					?>]
                 </div>
             </div>
         </div>
