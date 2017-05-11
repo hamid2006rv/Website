@@ -8,24 +8,22 @@
   	header('HTTP/1.0 404 Not Found');
   $id=htmlspecialchars($_GET['id']);
 
-  
-  echo 't';
 ?>
  <div class='container'>
         <div class='row'>
 			<div class='col-md-9 col-sm-12 col-xs-12'>
             	<div class='row'>
                 	<?php
-					$result=mysql_query("select * from notification where orgid=$id");
+					$result=mysql_query("select * from content where orgid=$id");
 					while($row=mysql_fetch_assoc($result))
 					{
 						echo "<div class='col-md-12 col-sm-12 col-xs-12'>";
 						echo "<div class='panel panel-default' style='margin:5px;'>";
 						
 					    if($row['hasTitle']==1)
-							echo "<div class='panel-heading'>$row[ntitle]</div>";
+							echo "<div class='panel-heading'>$row[ctitle]</div>";
 							
-						$content=htmlspecialchars_decode($row['ndesc']);
+						$content=htmlspecialchars_decode($row['cbody']);
 						echo "<div class='panel-body'>$content</div>";
 						echo "</div>";
 						echo "</div>";

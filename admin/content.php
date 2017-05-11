@@ -6,15 +6,24 @@
 <?php
     if(isset($_POST['save']))
 	{
-		$ntitle=htmlspecialchars($_POST['ctitle']);
-		$ndesc=htmlspecialchars($_POST['cbody']);
+		if(isset($_POST['hasTitle']))
+			$hasTitle=1;
+		else
+			$hasTitle=0;
+			
+		if(isset($_POST['ctitle']))
+			$ctitle=htmlspecialchars($_POST['ctitle']);
+		else
+			$ctitle='';
+		$cbody=htmlspecialchars($_POST['cbody']);
+		
 		$org=htmlspecialchars($_POST['org']);
 		$date=htmlspecialchars($_POST['date']);
         $er=0;
-		if (!isset($ntitle) || trim($ntitle)=='')
-			$er=$er | 0b00001;
+		//if (!isset($ntitle) || trim($ntitle)=='')
+		//	$er=$er | 0b00001;
 		
-		if (!isset($ndesc) || trim($ndesc)=='')
+		if (!isset($cbody) || trim($cbody)=='')
 			$er=$er | 0b00010;
 			
 		if (!isset($org) || $org==-1)
@@ -38,7 +47,7 @@
 		if($er==0)
 		{
 			
-			$sql="insert into content values (null,'$ntitle','$ndesc',$org,null,'$date',1,";
+			$sql="insert into content values (null,'$ctitle','$cbody',$org,null,'$date',";
 			if (isset($attach1))
 				$sql.="'$attach1',";
 			else
@@ -51,7 +60,8 @@
 				$sql.="'$attach3',";
 			else
 				$sql.="null,";
-			$sql.="0)";
+			$sql.="$hasTitle)";
+
 			$result=mysql_query($sql);
 			if ($result)
 			{
@@ -97,7 +107,7 @@
    <link href="css/persian-datepicker-redblack.css" rel="stylesheet" type="text/css"/>
    <link href="css/persian-datepicker-cheerup.css" rel="stylesheet" type="text/css"/>
    <script type="text/javascript" src="js/jquery.js"></script>
-   <script type="text/javascript" src="js/notification.js"></script>
+   <script type="text/javascript" src="js/content.js"></script>
    
    <script type="text/javascript" src="js/persian-date.js"></script>
    
@@ -149,13 +159,13 @@
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
     	<tr>
-        	<td><input type='checkbox' name='hasTitle' checked='checked'>عنوان</td><td><input type="text" size="200" name='ctitle' 
-			<?php if(isset($ntitle)) echo " value='$ntitle'";?>></td>
+        	<td><input type='checkbox' id='hasTitle' name='hasTitle' checked='checked' value='1'>عنوان</td><td><input type="text" size="200" name='ctitle' id='ctitle'
+			<?php if(isset($ntitle)) echo " value='$ctitle'";?>></td>
             <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
         <tr>
         	<td>محتوا</td><td>
-            <textarea name='cbody' rows="20" cols="100"><?php if(isset($ndesc)) echo trim($ndesc);?></textarea></td>
+            <textarea name='cbody' rows="20" cols="100"><?php if(isset($cbody)) echo trim($cbody);?></textarea></td>
             <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
         <tr><td>مرجع اطلاعیه</td>
@@ -213,13 +223,13 @@
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			echo "<td class='col'><input class='edit' value='$row[nid]' type='image' width='20' height='20' src='pic/edit.png'></input></td>";
-			echo "<td class='col'><input class='delete' value='$row[nid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
-			echo "<td class='col'>$row[nid]</td>";
-			echo "<td class='col'>$row[ntitle]</td>";
-			echo "<td class='col'>$row[ndesc]</td>";
+			echo "<td class='col'><input class='edit' value='$row[cid]' type='image' width='20' height='20' src='pic/edit.png'></input></td>";
+			echo "<td class='col'><input class='delete' value='$row[cid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
+			echo "<td class='col'>$row[cid]</td>";
+			echo "<td class='col'>$row[ctitle]</td>";
+			echo "<td class='col'>$row[cbody]</td>";
 			echo "<td class='col'>$row[name]</td>";
-			echo "<td class='col'>$row[ndate]</td>";
+			echo "<td class='col'>$row[cdate]</td>";
 			echo "<td class='col'>$row[attachment1]</td>";
 			echo "<td class='col'>$row[attachment2]</td>";
 			echo "<td class='col'>$row[attachment3]</td>";
