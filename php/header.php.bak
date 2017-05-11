@@ -99,16 +99,16 @@
                                     <li><a href='department.php?id=2'>فناوری اطلاعات</a></li>
                                  </ul>
                             </li>
-                            <li><a href='department.php?id=3'>امور پژوهشی</a></li>
-                            <li><a href='department.php?id=4'>امور دانشجویی</a></li>
+                            <li><a href='#'>امور پژوهشی</a></li>
+                            <li><a href='#'>امور دانشجویی</a></li>
                             <!--- menu ---->
                             <li class='dropdown'>
-                            	<a href='department.php?id=4'>تحصیلات تکمیلی
+                            	<a href='#'>تحصیلات تکمیلی
                                 <span class='caret'></span>
                                 </a>
                                 <ul class='dropdown-menu' role='menu' aria-labelledby='dropDownMenu'>
-                                    <li><a href='department.php?id=4'>فرم ها</a></li>
-                                    <li><a href='department.php?id=4'>اطلاعیه ها</a></li>
+                                    <li><a href='#'>فرم ها</a></li>
+                                    <li><a href='#'>اطلاعیه ها</a></li>
                                  </ul>
                             </li>
                         </ul>
