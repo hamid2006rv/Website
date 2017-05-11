@@ -1,13 +1,13 @@
 <?php
-    include_once ('php/init.php');
+    include('php/authority.php');
 	include_once ('php/functions.php');
 ?>
 
 <?php
     if(isset($_POST['save']))
 	{
-		$ntitle=htmlspecialchars($_POST['ntitle']);
-		$ndesc=htmlspecialchars($_POST['ndesc']);
+		$ntitle=htmlspecialchars($_POST['ctitle']);
+		$ndesc=htmlspecialchars($_POST['cbody']);
 		$org=htmlspecialchars($_POST['org']);
 		$date=htmlspecialchars($_POST['date']);
         $er=0;
@@ -38,7 +38,7 @@
 		if($er==0)
 		{
 			
-			$sql="insert into notification values (null,'$ntitle','$ndesc',$org,null,'$date',1,";
+			$sql="insert into content values (null,'$ntitle','$ndesc',$org,null,'$date',1,";
 			if (isset($attach1))
 				$sql.="'$attach1',";
 			else
@@ -138,23 +138,24 @@
 </div>
 <div id='menu'>
 <ul>
-	<li><a href='#'>اطلاعیه ها</a></li>
-    <li><a href='#'>اخبار</a></li>
-    <li><a href='#'>خروج</a></li>
+  	<li><a href='index.php'>اطلاعیه ها</a></li>
+	<li><a href='content.php'>محتوای سایت</a></li>
+    <li><a href='php/login.php'>خروج</a></li>
 </ul>
 </div>
 <div id='content'>
+<h2>محتوای سایت</h2>
 <div id='form'>
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
     	<tr>
-        	<td>عنوان اطلاعیه</td><td><input type="text" size="100" name='ntitle' 
+        	<td><input type='checkbox' name='hasTitle' checked='checked'>عنوان</td><td><input type="text" size="200" name='ctitle' 
 			<?php if(isset($ntitle)) echo " value='$ntitle'";?>></td>
             <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
         <tr>
-        	<td>توضیحات</td><td>
-            <textarea name='ndesc' rows="5" cols="50"><?php if(isset($ndesc)) echo trim($ndesc);?></textarea></td>
+        	<td>محتوا</td><td>
+            <textarea name='cbody' rows="20" cols="100"><?php if(isset($ndesc)) echo trim($ndesc);?></textarea></td>
             <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
         <tr><td>مرجع اطلاعیه</td>
@@ -206,9 +207,9 @@
         <th class='head'>فایل همراه 3</th>
     </tr>
     <?php
-		$result=mysql_query("select * from notification 
-		                     inner join organization on notification.orgid =organization.id
-							 order by ndate desc");
+		$result=mysql_query("select * from content 
+		                     inner join organization on content.orgid =organization.id
+							 order by cdate desc");
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";

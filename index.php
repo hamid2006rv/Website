@@ -1,4 +1,6 @@
 <?php
+  $page='index';
+  $orgid=1;
   include_once ('/php/init.php');
   include_once ('/php/functions.php');
   include_once ('/php/header.php');
@@ -87,7 +89,7 @@
                 </div>
 
 				<?php
-				$result=mysql_query("select * from notification order by ndate desc limit 0,6");
+				$result=mysql_query("select * from notification where orgid=$orgid order by ndate desc limit 0,6");
 				while($row=mysql_fetch_assoc($result))
 				{
 					echo "<div class='notification'>";

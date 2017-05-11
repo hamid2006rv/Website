@@ -77,7 +77,7 @@
                     </div>
                     <div class='collapse navbar-collapse' id='collapsemenu'>
                         <ul class='nav navbar-nav navbar-right' >
-                            <li class='active'><a href='#'>صفحه نخست</a></li>
+                            <li <?php if($page=='index') echo "class='active'";?>><a href='index.php'>صفحه نخست</a></li>
                             <!--- menu ---->
                             <li class='dropdown'>
                             	<a href='#'>درباره دانشگاه
