@@ -93,7 +93,7 @@
 				while($row=mysql_fetch_assoc($result))
 				{
 					echo "<div class='notification'>";
-                	echo "<a  href='./notifdetails.php?id=$row[nid]'>$row[ntitle]</a>";
+                	echo "<a target='_blank' href='./notifdetails.php?id=$row[nid]'>$row[ntitle]</a>";
 					$date=explode('-',$row['ndate']);
                     echo "<span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
                     echo "</div>";

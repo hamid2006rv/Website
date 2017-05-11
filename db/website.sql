@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2017 at 02:48 PM
+-- Generation Time: May 11, 2017 at 04:40 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -40,14 +40,14 @@ CREATE TABLE IF NOT EXISTS `content` (
   `attachment3` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `hasTitle` int(11) NOT NULL DEFAULT '1',
   UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `content`
 --
 
 INSERT INTO `content` (`cid`, `ctitle`, `cbody`, `orgid`, `uid`, `cdate`, `attachment1`, `attachment2`, `attachment3`, `hasTitle`) VALUES
-(3, '', '&lt;h3&gt;&lt;span style=&quot;color: #00ff00;&quot;&gt;رشته مهندسی فناوری اطلاعات&lt;/span&gt;&lt;/h3&gt;', 2, NULL, '1396-02-21', NULL, NULL, NULL, 0);
+(4, '', '&lt;h1 style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;رشته مهندسی فن آوری اطلاعات&lt;/span&gt;&lt;/h1&gt;\r\n&lt;p style=&quot;text-align: right;&quot;&gt;&lt;img style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; title=&quot;مهندسی فن آوری&quot; src=&quot;http://www.beytoote.com/images/stories/scientific/sci210.jpg&quot; alt=&quot;مهندسی فن آوری&quot; /&gt;&lt;/p&gt;\r\n&lt;p style=&quot;text-align: right;&quot;&gt;در کشور ما نیز در راستای ایجاد تغییرات بنیادین و منطقی و دستیابی به نیروهای متخصص و کارآمد رشته فناوری اطلاعات به صورت متمرکز و غیرمتمرکز در مراکز آموزش عالی از جمله دانشگاه ها ارایه می شود.&lt;/p&gt;\r\n&lt;p style=&quot;text-align: right;&quot;&gt;رشته مهندسی فناوری اطلاعات، زیرمجموعه گروه فنی در دانشگاه محسوب می شود. این رشته دانشی را به مخاطب منتقل می کند که طی آن روش های جمع آوری اطلاعات، استفاده و انتقال آن میسر شود.&lt;/p&gt;\r\n&lt;div style=&quot;text-align: right;&quot;&gt;&amp;nbsp;مطالعه، طراحی، ساخت، راه اندازی، نگهداری سیستم های سخت افزاری و نرم افزاری، جمع آوری، سازمان دهی، طبقه بندی و انتقال اطلاعات مهم ترین اهدافی است که مهندسی فناوری اطلاعات آن را دنبال می کند. مهم ترین توانمندی دانش آموختگان این رشته، استفاده صحیح و بهره برداری به موقع از اطلاعات است. هسته اصلی این رشته را مهندسی کامپیوتر به ویژه گرایش نرم افزار تشکیل می دهد.&lt;/div&gt;', 2, NULL, '1396-02-21', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`num_visited`) VALUES
-(39);
+(54);
 
 -- --------------------------------------------------------
 
