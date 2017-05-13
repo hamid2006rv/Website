@@ -48,6 +48,7 @@ if(isset($_POST['action']))
 		$result=mysql_query("delete from notification where nid=$id");
 		if($result)
 		{
+			//delete attached files
 				echo 'ok';
 				exit();	
 		}
