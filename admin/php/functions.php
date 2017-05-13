@@ -1,5 +1,6 @@
 <?php
- 
+ include_once ('init.php');
+
   function get_name_of_day ($d)
   {
 	switch($d)
@@ -36,4 +37,22 @@
 	  }
   }
   ////////////////////////////////////////
+
+if(isset($_POST['action']))
+{
+	$action=$_POST['action'];
+	if ($action==1)
+	{
+		$id=$_POST['id'];
+		
+		$result=mysql_query("delete from notification where nid=$id");
+		if($result)
+		{
+				echo 'ok';
+				exit();	
+		}
+	}
+
+}
+
 ?>

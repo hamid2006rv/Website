@@ -7,6 +7,7 @@
     if(isset($_POST['save']))
 	{
 		$ndesc='';
+		$day=date('N');
 		$ntitle=htmlspecialchars($_POST['ntitle']);
 		$ndesc=htmlspecialchars($_POST['ndesc']);
 		$org=htmlspecialchars($_POST['org']);
@@ -39,7 +40,7 @@
 		if($er==0)
 		{
 			
-			$sql="insert into notification values (null,'$ntitle','$ndesc',$org,null,'$date',1,";
+			$sql="insert into notification values (null,'$ntitle','$ndesc',$org,null,'$date',$day,";
 			if (isset($attach1))
 				$sql.="'$attach1',";
 			else
