@@ -6,7 +6,6 @@
 <?php
     if(isset($_POST['save']))
 	{
-		$ndesc='';
 		$ntitle=htmlspecialchars($_POST['ntitle']);
 		$ndesc=htmlspecialchars($_POST['ndesc']);
 		$org=htmlspecialchars($_POST['org']);
@@ -15,8 +14,8 @@
 		if (!isset($ntitle) || trim($ntitle)=='')
 			$er=$er | 0b00001;
 		
-		//if (!isset($ndesc) || trim($ndesc)=='')
-		//	$er=$er | 0b00010;
+		if (!isset($ndesc) || trim($ndesc)=='')
+			$er=$er | 0b00010;
 			
 		if (!isset($org) || $org==-1)
 			$er=$er | 0b00100;
