@@ -53,6 +53,18 @@ if(isset($_POST['action']))
 				exit();	
 		}
 	}
+	if ($action==2)
+	{
+		$id=$_POST['id'];
+		
+		$result=mysql_query("delete from content where cid=$id");
+		if($result)
+		{
+			//delete attached files
+				echo 'ok';
+				exit();	
+		}
+	}
 
 }
 
