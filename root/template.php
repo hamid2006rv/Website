@@ -1,7 +1,9 @@
 <?php
+  $page='';
   include_once ('/php/init.php');
   include_once ('/php/functions.php');
   include_once ('/php/header.php');
+
 
 ?>
  <div class='container'>

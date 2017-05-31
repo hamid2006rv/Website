@@ -113,10 +113,10 @@
                             </li>
                         </ul>
                                
-                        <form class='navbar-form'>
+                        <form action='search.php' method='get' class='navbar-form'>
                             <div class='form-group'>
-                                <input type='text' class='form-control' placeholder='جستجو ...' >
-								<button type='submit' clas='btn btn-default'>
+                                <input type='text' name ='search' class='form-control' placeholder='جستجو ...' >
+								<button type='submit'name='submit' clas='btn btn-default'>
 									<span class='glyphicon glyphicon-search'></span> 
 								</button> 
                             </div>
