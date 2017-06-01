@@ -86,16 +86,7 @@
         </td></tr>
         <tr><td><input type="submit" name="save" value="ذخیره"></td><td></td></tr>
         </table>
-
-        <div>
-        	<?php
-			if(isset($error))
-				echo $error;
-			?>
-        </div>
-        
-        
-    </form>
+   </form>
 </div>
 </div>
 	

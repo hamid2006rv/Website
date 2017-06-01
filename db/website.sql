@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2017 at 05:23 PM
+-- Generation Time: Jun 01, 2017 at 11:15 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -39,8 +39,11 @@ CREATE TABLE IF NOT EXISTS `content` (
   `attachment2` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `attachment3` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `hasTitle` int(11) NOT NULL DEFAULT '1',
-  UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  UNIQUE KEY `cid` (`cid`),
+  FULLTEXT KEY `ctitle` (`ctitle`,`cbody`),
+  FULLTEXT KEY `ctitle_2` (`ctitle`,`cbody`),
+  FULLTEXT KEY `content_index` (`ctitle`,`cbody`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `content`
@@ -70,15 +73,9 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `attachment2` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `attachment3` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `views` int(11) DEFAULT NULL,
-  UNIQUE KEY `nid` (`nid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
-
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`nid`, `ntitle`, `ndesc`, `orgid`, `uid`, `ndate`, `day_week`, `attachment1`, `attachment2`, `attachment3`, `views`) VALUES
-(29, 'test', 'test', 1, NULL, '1396-02-21', 1, NULL, NULL, NULL, 0);
+  UNIQUE KEY `nid` (`nid`),
+  FULLTEXT KEY `ntitle` (`ntitle`,`ndesc`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 -- --------------------------------------------------------
 
@@ -119,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`num_visited`) VALUES
-(67);
+(138);
 
 -- --------------------------------------------------------
 
@@ -139,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'admin', '123');
+(1, 'admin', '202cb962ac59075b964b07152d234b70');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

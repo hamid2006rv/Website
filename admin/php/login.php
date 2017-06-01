@@ -22,7 +22,8 @@
 			$error=" رمز عبور را وارد کنید";
 		else
 		{
-		    $sql="select * from user where username='$username' and password='$password'";
+			$hash=md5($password);
+		    $sql="select * from user where username='$username' and password='$hash'";
 
 			$result=mysql_query($sql);
 			if($result && mysql_num_rows($result)==1)
