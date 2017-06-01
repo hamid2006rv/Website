@@ -207,7 +207,7 @@
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			/*echo "<td class='col'><input class='edit' value='$row[nid]' type='image' width='20' height='20' src='pic/edit.png'></input></td>";*/
+			echo "<td class='col'><a class='edit' href='update.php?id=$row[nid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
 			echo "<td class='col'><input class='delete' value='$row[nid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[nid]</td>";
 			echo "<td class='col'>$row[ntitle]</td>";
