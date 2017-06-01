@@ -22,7 +22,7 @@
 								$w.=' 1=1';
 								$result=mysql_query("select distinct * from notification where $w");
 								if(mysql_num_rows($result)==0) 
-									echo '<b>Not found!</b>';
+									echo '<b>هيچ موردی در رابطه با جستجوي شما پيدا نشد!</b>';
 								else
 									while($row=mysql_fetch_assoc($result))
 									{
