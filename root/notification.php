@@ -51,11 +51,11 @@
 					  </ul>
 				</nav>
            </div>
-		   <div class='col-md-3 col-sm-2 col-xs-2'>
+		   <div class='col-md-3 col-sm-12 col-xs-12'>
 					<h1>تبلیغات</h1>
-					<img src='img/ads/ads.jpg'/>
-					<img src='img/ads/ads.jpg'/>
-					<img src='img/ads/ads.jpg'/>
+				<img class='thumbnail' src='img/ads/ads.jpg'/>
+				<img class='thumbnail'src='img/ads/ads.jpg'/>
+				<img class='thumbnail'src='img/ads/ads.jpg'/>
            </div>
 		</div>
 

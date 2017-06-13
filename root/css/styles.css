@@ -305,3 +305,7 @@ padding: 0px 5px 0 5px;
 {
 	font-size: 16px;
 }
+.thumbnail
+{
+	width:100%;
+}
