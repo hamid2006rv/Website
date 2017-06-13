@@ -171,7 +171,7 @@
 			if(isset($pic))
 			{
   			  		move_uploaded_file($_FILES['pic']['tmp_name'], '../uploads/pic/'.$pic);
-					echo "<span>uploads/pic/$pic</span>";
+					echo "<span>../uploads/pic/$pic</span>";
 			}
 		}
    ?>
