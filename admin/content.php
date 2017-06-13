@@ -68,18 +68,18 @@
 				$error="<b style='color:green'>اطلاعات در سیستم ذخیره شد</b>";
 				$id=mysql_insert_id();
 				if(isset($attach1)||isset($attach2)||isset($attach3))
-					mkdir('uploads/cont/c'.$id);
+					mkdir('../uploads/cont/c'.$id);
 				if(isset($attach1))
 				{
-  			  		move_uploaded_file($_FILES['attach1']['tmp_name'], 'uploads/cont/c'.$id.'/'.$attach1);
+  			  		move_uploaded_file($_FILES['attach1']['tmp_name'], '../uploads/cont/c'.$id.'/'.$attach1);
 				}
 				if(isset($attach2))
 				{
-  			  		move_uploaded_file($_FILES['attach2']['tmp_name'], 'uploads/cont/c'.$id.'/'.$attach2);
+  			  		move_uploaded_file($_FILES['attach2']['tmp_name'], '../uploads/cont/c'.$id.'/'.$attach2);
 				}
 				if(isset($attach3))
 				{
-  			  		move_uploaded_file($_FILES['attach3']['tmp_name'], 'uploads/cont/c'.$id.'/'.$attach3);
+  			  		move_uploaded_file($_FILES['attach3']['tmp_name'], '../uploads/cont/c'.$id.'/'.$attach3);
 				}
 			  	$ctitle='';
 				$cbody='';
@@ -156,6 +156,28 @@
 <div id='content'>
 <h2>محتوای سایت</h2>
 <div id='form'>
+
+<div>
+<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
+   <b>ایجاد لینک عکس</b><input type='file' name='pic' accept="image/*"><input type='submit' name='picsub' value='دریافت لینک'>
+   <?php
+		if(isset($_POST['picsub']))
+		{
+			if($_FILES['pic']['error']==0)
+			{
+				$pic= $_FILES['pic']['name'];	
+			}
+			if(isset($pic))
+			{
+  			  		move_uploaded_file($_FILES['pic']['tmp_name'], '../uploads/pic/'.$pic);
+					echo "<span>uploads/pic/$pic</span>";
+			}
+		}
+   ?>
+</form>
+</div>
+<h3>ادیتور HTML <a href='https://html-online.com/editor/' target='_blank'>Online HTML Editor</a></h3>
+
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
     	<tr>
@@ -223,7 +245,7 @@
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			/*echo "<td class='col'><input class='edit' value='$row[cid]' type='image' width='20' height='20' src='pic/edit.png'></input></td>";*/
+			echo "<td class='col'><a class='edit' href='updateContent.php?id=$row[cid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
 			echo "<td class='col'><input class='delete' value='$row[cid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[cid]</td>";
 			echo "<td class='col'>$row[ctitle]</td>";

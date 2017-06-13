@@ -60,18 +60,18 @@
 				$error="<b style='color:green'>اطلاعات در سیستم ذخیره شد</b>";
 				$id=mysql_insert_id();
 				if(isset($attach1)||isset($attach2)||isset($attach3))
-					mkdir('uploads/notif/n'.$id);
+					mkdir('../uploads/notif/n'.$id);
 				if(isset($attach1))
 				{
-  			  		move_uploaded_file($_FILES['attach1']['tmp_name'], 'uploads/notif/n'.$id.'/'.$attach1);
+  			  		move_uploaded_file($_FILES['attach1']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach1);
 				}
 				if(isset($attach2))
 				{
-  			  		move_uploaded_file($_FILES['attach2']['tmp_name'], 'uploads/notif/n'.$id.'/'.$attach2);
+  			  		move_uploaded_file($_FILES['attach2']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach2);
 				}
 				if(isset($attach3))
 				{
-  			  		move_uploaded_file($_FILES['attach3']['tmp_name'], 'uploads/notif/n'.$id.'/'.$attach3);
+  			  		move_uploaded_file($_FILES['attach3']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach3);
 				}
 			  	$ntitle='';
 				$ndesc='';
