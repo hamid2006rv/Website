@@ -204,7 +204,8 @@ ul.nav li.dropdown  ul.dropdown-menu
 }
 .top-news a{
 	display:block;
-	float:right;	
+	float:right;
+	font-size: 18px;
 }
 .text-news 
 {
@@ -212,7 +213,6 @@ ul.nav li.dropdown  ul.dropdown-menu
 }
 .text-news  h3
 {
-
 }
 
 .text-news  a
@@ -225,7 +225,8 @@ ul.nav li.dropdown  ul.dropdown-menu
 
 .text-news p
 {
-	margin-top:50px;	
+	margin-top:50px;
+	font-size: 16px;
 }
 
 @media screen and (max-width: 500px) {
@@ -248,7 +249,7 @@ ul.nav li.dropdown  ul.dropdown-menu
 {
 	display: block;
 	float: right;
-	font-size:13px;
+	font-size:16px;
 }
 .latest-news img
 {
@@ -299,4 +300,8 @@ padding: 0px 5px 0 5px;
 {
 	color:#fff;
 }
-
+/*========misc=====*/
+.panel-body
+{
+	font-size: 16px;
+}
