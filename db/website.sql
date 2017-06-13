@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 09:16 PM
+-- Generation Time: Jun 13, 2017 at 09:57 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `attachment3` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `hasTitle` int(11) NOT NULL DEFAULT '1',
   UNIQUE KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `content`
@@ -53,7 +53,8 @@ INSERT INTO `content` (`cid`, `ctitle`, `cbody`, `orgid`, `uid`, `cdate`, `attac
 (7, '', '&lt;table dir=&quot;rtl&quot; width=&quot;100%&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;h1&gt;&lt;span style=&quot;color: #000080;&quot;&gt;این صفحه در حال ساخت است&lt;/span&gt;&lt;/h1&gt;\r\n&lt;div&gt;\r\n&lt;p&gt;&lt;strong&gt;کاربر گرامی با تشکر از بازدیدتان، این صفحه در حال ساخت می باشد ، لطفأ بعدأ مراجعه فرمایید&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;', 5, NULL, '1396-02-21', NULL, NULL, NULL, 0),
 (8, 'مدیر گروه', '&lt;p&gt;&lt;img src=&quot;../uploads/pic/my pic.JPG&quot; alt=&quot;&quot; width=&quot;100px&quot; /&gt;&lt;/p&gt;\r\n&lt;table&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;strong&gt;نام و نام خانوادگی :&lt;/strong&gt;&lt;/td&gt;\r\n&lt;td&gt;مهندس حمید روایی&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;strong&gt;&amp;nbsp;مرتبه علمی :&lt;/strong&gt;&lt;/td&gt;\r\n&lt;td&gt;&amp;nbsp;مربی&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;strong&gt;&amp;nbsp;email :&lt;/strong&gt;&lt;/td&gt;\r\n&lt;td&gt;&amp;nbsp;h.ravaei@sepahan.ac.ir&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;', 2, NULL, '1396-03-23', NULL, NULL, NULL, 1),
 (9, 'برنامه تحصیلی کارشناسی ارشد', '&lt;p&gt;&lt;span style=&quot;color: #993300;&quot;&gt;برنامه چهار ترمی کارشناسی ارشد تجارت الکترونیک&lt;/span&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;span style=&quot;color: #993300;&quot;&gt;6 واحد جبرانی (برای رشته های غیر مرتیط)&lt;/span&gt;&lt;/li&gt;\r\n&lt;li&gt;&lt;span style=&quot;color: #993300;&quot;&gt;32 واحد درسی&lt;/span&gt;&lt;/li&gt;\r\n&lt;/ul&gt;', 2, NULL, '1396-03-23', 'it master 2.pdf', NULL, NULL, 1),
-(10, 'برنامه هشت ترمی کارشناسی', 'کارشناسی مهندسی فناوری اطلاعات در هشت ترم و 148 واحد می باشد', 2, NULL, '1396-03-23', 'IT.pdf', NULL, NULL, 1);
+(10, 'برنامه هشت ترمی کارشناسی', 'کارشناسی مهندسی فناوری اطلاعات در هشت ترم و 148 واحد می باشد', 2, NULL, '1396-03-23', 'IT.pdf', NULL, NULL, 1),
+(11, '', '&lt;p style=&quot;color: #0b2d61;&quot;&gt;مؤسسه آموزش عالي علوم و فناوري سپاهان با هدف ارتقاء سطح علمي و دانش جامعه از طريق ايجاد زمينه&amp;shy;اي لازم جهت كسب مهارت&amp;shy;هاي علمي و فني جوانان شايسته ايراني و ايجاد توانمندي در جوانان جهت آينده&amp;shy;ي بهتر و زندگي با اميد و نشاط بيشتر در شهر اصفهان تأسيس و راه&amp;shy;اندازي شده است. تقاضاي تأسيس اين مؤسسه آموزش عالي به همت جمعي از دانشگاهيان و فرهيختگان به شوراي گسترش آموزش عالي وزارت علوم ، تحقيقات و فناوري ارائه گرديد و در سال 1383 با تصويب شوراي انقلاب فرهنگي و اخذ موافقت اصولي و مجوز شماره 45372/22 مورخ 7/6/83 از شوراي گسترش آموزش عالي وزارت علوم ، تحقيقات و فناوري ، به جمع مؤسسات آموزش عالي پيوست.&lt;/p&gt;\r\n', 6, NULL, '1396-03-24', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `top_id` int(11) DEFAULT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `organization`
@@ -137,7 +138,8 @@ INSERT INTO `organization` (`id`, `name`, `top_id`) VALUES
 (2, 'IT', NULL),
 (3, 'امور دانشجویی', NULL),
 (4, 'امور پژوهشی', NULL),
-(5, 'تحصیلات تکمیلی', NULL);
+(5, 'تحصیلات تکمیلی', NULL),
+(6, 'درباره دانشگاه', NULL);
 
 -- --------------------------------------------------------
 
@@ -154,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`num_visited`) VALUES
-(279);
+(288);
 
 -- --------------------------------------------------------
 

@@ -84,7 +84,7 @@
                                 <span class='caret'></span>
                                 </a>
                                 <ul class='dropdown-menu' role='menu' aria-labelledby='dropDownMenu'>
-                                    <li><a href='#'>دانشگاه علوم و فناوری سپاهان</a></li>
+                                    <li><a href='department.php?id=6'>دانشگاه علوم و فناوری سپاهان</a></li>
                                     <li><a href='#'>ریاست دانشگاه</a></li>
                                     <li><a href='#'>هیات موسس</a></li>
                                     <li><a href='#'>اعضای هیات علمی</a></li>

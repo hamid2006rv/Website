@@ -177,7 +177,7 @@
    ?>
 </form>
 </div>
-<h3>ادیتور HTML <a href='https://html-online.com/editor/' target='_blank'>Online HTML Editor</a></h3>
+<h3>ادیتور HTML <a href='http://www.html.am/html-editors/online-html-editor.cfm' target='_blank'>Online HTML Editor</a></h3>
 
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
