@@ -17,65 +17,72 @@
                     </div>
                  </div>
                 <div class='top-news'>
-                    <a target='_blank' href='#'>
-                        <img src='img/1.gif' alt='news'>
-                    </a>
-                    <div class='text-news'>
-                        <span class='glyphicon glyphicon-calendar'></span><span> سه شنبه 11 آبان</span>
-                        <h3>
-                        	<a target='_blank' href='#'>قابل توجه متقاضیان شرکت در همایش بدون ارائه مقاله</a>
-                        </h3>
-                        <p>زمان برگزاری همایش: شنبه 20 آذر ساعت 9 الی 16
-                            زمان ثبت نام: 20 آبان  الی 1 آذر
-                            محل ثبت نام: امور دانشجویی
-                            هزینه ثبت نام با ارائه کارت دانشجویی (شامل پذیرایی، ناهار و گواهی شرکت): 10 هزار تومان
-                            مکان برگزاری همایش: روبروی پل خواجو، سالن موسسه تنظیم و نشر آثار امام خمینی(ره)
-                            قابل ذکر است با توجه به محدود بودن  ظرفیت سالن، اولویت با دانشجویان ارشد و دانشجویان مهندسی برق و مهندسی پزشکی می باشد.
-                        </p>
-                    </div>
+                    <?php 
+						$result=mysql_query('select * from news order by edate desc limit 0,5');
+						$row=mysql_fetch_assoc($result);
+						echo "<a href='#'>";
+						echo "<img src='../uploads/news/e$row[eid]/$row[epic]' alt='news'>";
+						echo "</a>";
+						echo "<div class='text-news'>";
+						$date=explode('-',$row['edate']);
+						echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
+						echo "<h3><a href='#'>$row[etitle]</a></h3><p>$row[edesc]</p>";
+						echo "</div>";
+					?>
+			   </div>
+                <div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div class="latest-news">
+							<?php 
+							$row=mysql_fetch_assoc($result);
+							echo "<a href='#'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+							echo "<div class='text-news'>";
+							$date=explode('-',$row['edate']);
+							echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
+							echo "<h3><a href='#'>$row[etitle]</a></h3>";
+							echo "</div>"
+							?>
+         				</div>
+	    			</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="latest-news">
+							<?php 
+							$row=mysql_fetch_assoc($result);
+							echo "<a href='#'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+							echo "<div class='text-news'>";
+							$date=explode('-',$row['edate']);
+							echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
+							echo "<h3><a href='#'>$row[etitle]</a></h3>";
+							echo "</div>"
+							?>
+					  </div>
+				    </div>
                 </div>
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
 						<div class="latest-news">
-							<a href='#'><img src='img/1.gif'></a>
-							<div class="text-news">
-                            	<span class='glyphicon glyphicon-calendar'></span> 
-								<span>پنجشنبه 20 آبان</span>
-								<h3><a href='#'>اطلاعیه پذیرش دانشجو در سال تحصیلی ۹۶-۹۵
-</a></h3>
-							</div>
+							<?php 
+							$row=mysql_fetch_assoc($result);
+							echo "<a href='#'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+							echo "<div class='text-news'>";
+							$date=explode('-',$row['edate']);
+							echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
+							echo "<h3><a href='#'>$row[etitle]</a></h3>";
+							echo "</div>"
+							?>
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="latest-news">
-							<a href='#'><img src='img/1.gif'></a>
-							<div class="text-news">
-                            	<span class='glyphicon glyphicon-calendar'></span>
-								<span>پنجشنبه 20 آبان</span>
-								<h3><a href='#'>اسامی پذیرفته شدگان کنکور ارشد سال ۹۴</a></h3>
-							</div>
-						</div>
-					</div>
-				</div>
-                <div class="row">
-					<div class="col-md-6 col-sm-6">
-						<div class="latest-news">
-							<a href='#'><img src='img/1.gif'></a>
-							<div class="text-news">
-                            	<span class='glyphicon glyphicon-calendar'></span>
-								<span>پنجشنبه 20 آبان</span>
-								<h3><a href='#'>مراسم جشن عید غدیر</a></h3>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="latest-news">
-							<a href='#'><img src='img/1.gif'></a>
-							<div class="text-news">
-                            	<span class='glyphicon glyphicon-calendar'></span>
-								<span>پنجشنبه 20 آبان</span>
-								<h3><a href='#'>اسامی قبول شدگان کنکور کارشناسی ارشد سال ٩٣</a></h3>
-							</div>
+							<?php 
+							$row=mysql_fetch_assoc($result);
+							echo "<a href='#'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+							echo "<div class='text-news'>";
+							$date=explode('-',$row['edate']);
+							echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
+							echo "<h3><a href='#'>$row[etitle]</a></h3>";
+							echo "</div>"
+							?>
 						</div>
 					</div>
 				</div>

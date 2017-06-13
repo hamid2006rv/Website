@@ -6,76 +6,45 @@
 <?php
     if(isset($_POST['save']))
 	{
-		$ndesc='';
 		$day=date('N');
-		$ntitle=htmlspecialchars($_POST['ntitle']);
-		$ndesc=htmlspecialchars($_POST['ndesc']);
-		$org=htmlspecialchars($_POST['org']);
-		$date=htmlspecialchars($_POST['date']);
+		if(isset($_POST['etitle']))
+			$etitle=htmlspecialchars($_POST['etitle']);
+		if(isset($_POST['edesc']))
+			$edesc=htmlspecialchars($_POST['edesc']);
+		if(isset($_POST['date']))
+			$date=htmlspecialchars($_POST['date']);
         $er=0;
-		if (!isset($ntitle) || trim($ntitle)=='')
+		if (!isset($etitle) || trim($etitle)=='')
 			$er=$er | 0b00001;
 		
-		//if (!isset($ndesc) || trim($ndesc)=='')
-		//	$er=$er | 0b00010;
+		if (!isset($edesc) || trim($edesc)=='' || count(explode(' ',$edesc))<50)
+			$er=$er | 0b00010;
 			
-		if (!isset($org) || $org==-1)
+		if($_FILES['epic']['error']==0)
+			{
+				$epic= $_FILES['epic']['name'];	
+			}
+		if (!isset($epic))
 			$er=$er | 0b00100;
 		
 		if (!isset($date))
 			$er=$er | 0b01000;
 			
-		if($_FILES['attach1']['error']==0)
-			{
-				$attach1= $_FILES['attach1']['name'];	
-			}
-		if($_FILES['attach2']['error']==0)
-			{
-				$attach2= $_FILES['attach2']['name'];	
-			}
-		if($_FILES['attach3']['error']==0)
-			{
-				$attach3= $_FILES['attach3']['name'];	
-			}
+		
 		if($er==0)
 		{
 			
-			$sql="insert into notification values (null,'$ntitle','$ndesc',$org,null,'$date',$day,";
-			if (isset($attach1))
-				$sql.="'$attach1',";
-			else
-				$sql.="null,";
-			if (isset($attach2))
-				$sql.="'$attach2',";
-			else
-				$sql.="null,";
-			if (isset($attach3))
-				$sql.="'$attach3',";
-			else
-				$sql.="null,";
-			$sql.="0)";
+			$sql="insert into news values (null,'$etitle','$edesc','$epic','$epic',null,'$date',$day,0)";
 			$result=mysql_query($sql);
 			if ($result)
 			{
 				$error="<b style='color:green'>اطلاعات در سیستم ذخیره شد</b>";
 				$id=mysql_insert_id();
-				if(isset($attach1)||isset($attach2)||isset($attach3))
-					mkdir('../uploads/notif/n'.$id);
-				if(isset($attach1))
-				{
-  			  		move_uploaded_file($_FILES['attach1']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach1);
-				}
-				if(isset($attach2))
-				{
-  			  		move_uploaded_file($_FILES['attach2']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach2);
-				}
-				if(isset($attach3))
-				{
-  			  		move_uploaded_file($_FILES['attach3']['tmp_name'], '../uploads/notif/n'.$id.'/'.$attach3);
-				}
-			  	$ntitle='';
-				$ndesc='';
-		        $org=-1;
+				mkdir('../uploads/news/e'.$id);
+				mkdir('../uploads/news/e'.$id.'/thumbs');
+				$epic = cwUpload('epic','../uploads/news/e'.$id.'/','',TRUE,'../uploads/news/e'.$id.'/thumbs/','90','90');
+				$etitle='';
+				$edesc='';
 			}
 			else
 			{
@@ -99,7 +68,7 @@
    <link href="css/persian-datepicker-redblack.css" rel="stylesheet" type="text/css"/>
    <link href="css/persian-datepicker-cheerup.css" rel="stylesheet" type="text/css"/>
    <script type="text/javascript" src="js/jquery.js"></script>
-   <script type="text/javascript" src="js/notification.js"></script>
+   <script type="text/javascript" src="js/news.js"></script>
    
    <script type="text/javascript" src="js/persian-date.js"></script>
    
@@ -148,32 +117,26 @@
 </ul>
 </div>
 <div id='content'>
-<h2>اطلاعیه ها</h2>
+<h2>اخبار</h2>
 <div id='form'>
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
     	<tr>
-        	<td>عنوان اطلاعیه</td><td><input type="text" size="100" name='ntitle' 
-			<?php if(isset($ntitle)) echo " value='$ntitle'";?>></td>
+        	<td>عنوان خبر</td><td><input type="text" size="100" name='etitle' 
+			<?php if(isset($etitle)) echo " value='$etitle'";?>></td>
             <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
         <tr>
-        	<td>توضیحات</td><td>
-            <textarea name='ndesc' rows="10" cols="100"><?php if(isset($ndesc)) echo trim($ndesc);?></textarea></td>
-            <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*</span>"; ?></td>
+        	<td>متن خبر</td><td>
+            <textarea name='edesc' rows="10" cols="100"><?php if(isset($edesc)) echo trim($edesc);?></textarea></td>
+            <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*متن خبر باید بیشتر از 50 کلمه باشد</span>"; ?></td>
         </tr>
-        <tr><td>مرجع اطلاعیه</td>
-        <td>
-        <select name='org'>
-           <option value='1' selected>آموزش</option>
-        </select>
-        <?php if(isset($er) && ($er & 0b00100) >0) echo "<span style='color:red'>*</span>"; ?></td></tr>
-        <tr><td>تاریخ</td><td><input type='text' id='observer' name='date'/>
+        <tr><td>عکس</td><td><input type='file' name="epic" accept="image/*" /></td>
+		 <td><?php if(isset($er) && ($er & 0b00100) >0) echo "<span style='color:red'>*</span>"; ?></td>
+		</tr>
+		<tr><td>تاریخ</td><td><input type='text' id='observer' name='date'/>
         <?php if(isset($er) && ($er & 0b01000) >0) echo "<span style='color:red'>*</span>"; ?>
         </td></tr>
-        <tr><td>ضمیمه 1</td><td><input type='file' name="attach1" /></td></tr>
-        <tr><td>ضمیمه 2</td><td><input type='file' name="attach2" /></td></tr>
-        <tr><td>ضمیمه 3</td><td><input type='file' name="attach3" /></td></tr>
         <tr><td><input type="submit" name="save" value="ذخیره"></td><td></td></tr>
         </table>
 
@@ -194,30 +157,21 @@
 		<th class='head'>کد</th>
 		<th class='head'>عنوان</th>
         <th class='head'>توضیحات</th>
-        <th class='head'>مرجع</th>
         <th class='head'>تاریخ</th>
-        <th class='head'>فایل همراه 1</th>
-        <th class='head'>فایل همراه 2</th>
-        <th class='head'>فایل همراه 3</th>
+        <th class='head'>عکس</th>
     </tr>
     <?php
-		$result=mysql_query("select * from notification 
-		                     inner join organization on notification.orgid =organization.id
-							 where orgid=1
-							 order by ndate desc");
+		$result=mysql_query("select * from news	 order by edate desc");
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			echo "<td class='col'><a class='edit' href='update.php?id=$row[nid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
-			echo "<td class='col'><input class='delete' value='$row[nid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
-			echo "<td class='col'>$row[nid]</td>";
-			echo "<td class='col'>$row[ntitle]</td>";
-			echo "<td class='col'>$row[ndesc]</td>";
-			echo "<td class='col'>$row[name]</td>";
-			echo "<td class='col'>$row[ndate]</td>";
-			echo "<td class='col'>$row[attachment1]</td>";
-			echo "<td class='col'>$row[attachment2]</td>";
-			echo "<td class='col'>$row[attachment3]</td>";
+			echo "<td class='col'><a class='edit' href='updatenews.php?id=$row[eid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
+			echo "<td class='col'><input class='delete' value='$row[eid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
+			echo "<td class='col'>$row[eid]</td>";
+			echo "<td class='col'>$row[etitle]</td>";
+			echo "<td class='col'>$row[edesc]</td>";
+			echo "<td class='col'>$row[edate]</td>";
+			echo "<td class='col'><img alt='' src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></td>";
 			echo "</tr>";
 		}
 	?>

@@ -45,7 +45,7 @@
 		</div>
        	<div class='container-fluid  '>
     		<div class='row'>
-            	<div class='col-xs-6 col-md-pull-5'>
+            	<div class='col-xs-6 col-md-pull-1'>
                 	<h1 class='logo'>
                     	<a href='/'>
                         <img  src='img/logo.png' alt='موسسه آموزش عالی علوم و فناوری سپاهان'>

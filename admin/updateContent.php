@@ -65,6 +65,7 @@
 <ul>
 	<li><a href='index.php'>اطلاعیه ها</a></li>
 	<li><a href='content.php'>محتوای سایت</a></li>
+	<li><a href='news.php'>اخبار</a></li>
     <li><a href='php/login.php'>خروج</a></li>
 </ul>
 </div>
