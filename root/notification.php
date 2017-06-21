@@ -1,9 +1,9 @@
 <?php
   $orgid=1;
   $page='';
-  include_once ('/php/init.php');
-  include_once ('/php/functions.php');
-  include_once ('/php/header.php');
+  include_once ('php/init.php');
+  include_once ('php/functions.php');
+  include_once ('php/header.php');
 ?>
 
  <div class='container'>
@@ -62,5 +62,5 @@
 </div>
 
 <?php
-  include_once ('/php/footer.php');
+  include_once ('php/footer.php');
 ?>

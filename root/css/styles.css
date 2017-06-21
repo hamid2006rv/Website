@@ -129,7 +129,7 @@ color:#fff;
 }
 
 
-ul.nav li.dropdown:hover ul.dropdown-menu{
+ul.nav li.dropdown:hover .first-cat{
     display: block;    
 }
 
@@ -140,6 +140,31 @@ ul.nav li.dropdown  ul.dropdown-menu
 }
 .navbar-default .navbar-toggle {
     border-color: #141111;
+}
+/*===== menu ============*/
+.dropdown-menu{
+	text-align: right;
+}
+	
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-menu > li > a
+{
+	font-size:12px;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    right: 100%;
+    margin-top: -6px;
+    margin-right: -1px;
+    border-radius: 0 ;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
 }
 /*===== caresoul =======*/
 .carousel-caption{

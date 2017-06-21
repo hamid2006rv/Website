@@ -1,10 +1,10 @@
 <?php
   $page='index';
   $orgid=1;
-  include_once ('/php/init.php');
-  include_once ('/php/functions.php');
-  include_once ('/php/header.php');
-  include_once ('/php/carousel.php');
+  include_once ('php/init.php');
+  include_once ('php/functions.php');
+  include_once ('php/header.php');
+  include_once ('php/carousel.php');
 ?>   
 
  <div class='container'>
@@ -126,5 +126,5 @@
 	</div>
 
 <?php
-  include_once ('/php/footer.php');
+  include_once ('php/footer.php');
 ?>
