@@ -250,7 +250,7 @@
 			echo "<td class='col'><input class='delete' value='$row[cid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[cid]</td>";
 			echo "<td class='col'>$row[ctitle]</td>";
-			echo "<td class='col'>$row[cbody]</td>";
+			echo "<td class='col'>".html_entity_decode($row['cbody'])."</td>";
 			echo "<td class='col'>$row[name]</td>";
 			echo "<td class='col'>$row[cdate]</td>";
 			echo "<td class='col'>$row[attachment1]</td>";

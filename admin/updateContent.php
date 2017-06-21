@@ -82,7 +82,7 @@
         </tr>
         <tr>
         	<td>محتوا</td><td>
-            <textarea name='cbody' rows="20" cols="100"><?=trim($cbody)?></textarea></td>
+            <textarea name='cbody' rows="20" cols="100"><?=trim(html_entity_decode($cbody))?></textarea></td>
             <td></td>
         </tr>
         <tr><td>مرجع اطلاعیه</td>
