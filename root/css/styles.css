@@ -105,6 +105,10 @@ color:#fff;
 	background-color:#CC9;
 	border: none;
 }
+ul.nav.navbar-nav.navbar-right
+{
+	padding-right: 15px;
+}
 .navbar-nav > li
 {
 	float:right;
@@ -117,8 +121,6 @@ color:#fff;
 .navbar-default .navbar-nav  >li > a:hover
 {
 	background-color: #de6538;
-	border:1px solid #633;
-	border-radius: 4px;	
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
