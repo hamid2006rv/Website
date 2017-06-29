@@ -20,5 +20,41 @@ $(document).ready(function(){
 			$('#ctitle').prop('disabled', false);
 		else
 			$('#ctitle').prop('disabled', true);
-		});	
+		});
+	/////////////////////////////////////
+	$('#menu1').change(function(){
+			$('#menu2').html('');
+			$('#menu3').html('');
+			var id=$(this).val();
+			$.post('php/functions.php',{action:4, id:id},function(e){
+			try{
+			
+				var data=JSON.parse(e);
+		    	for(var i=0;i<Object.keys(data).length;i++)
+					{
+					var k=Object.keys(data)[i];
+					$('#menu2').append("<option value='"+k+"'>"+data[k].name+"</option>");
+					}
+				$('#menu2').find('option').first().attr('selected','selected');
+				$('#menu2').change();
+			}catch(ex){}
+			});
+		});
+	///////////////////////////////////////////
+		$('#menu2').change(function(){
+			$('#menu3').html('');
+			var id=$(this).val();
+			$.post('php/functions.php',{action:4, id:id},function(e){
+			try{
+			
+				var data=JSON.parse(e);
+		    	for(var i=0;i<Object.keys(data).length;i++)
+					{
+					var k=Object.keys(data)[i];
+					$('#menu3').append("<option value='"+k+"'>"+data[k].name+"</option>");
+					}
+				$('#menu3').find('option').first().attr('selected','selected');
+			}catch(ex){}
+			});
+		});
 });

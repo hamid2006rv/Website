@@ -11,60 +11,43 @@
                     <div class='collapse navbar-collapse' id='collapsemenu'>
                         <ul class='nav navbar-nav navbar-right' >
                             <li <?php if($page=='index') echo "class='active'";?>><a href='index.php'>صفحه نخست</a></li>
-                            <!--- menu ---->
-                            <li class='dropdown'>
-                            	<a href='#'>درباره دانشگاه
-                                <span class='caret'></span>
-                                </a>
-                                <ul class='dropdown-menu first-cat' role='menu' aria-labelledby='dropDownMenu'>
-                                    <li><a href='department.php?id=6'>دانشگاه علوم و فناوری سپاهان</a></li>
-                                    <li><a href='#'>ریاست دانشگاه</a></li>
-                                    <li><a href='#'>هیات موسس</a></li>
-                                    <li><a href='#'>اعضای هیات علمی</a></li>
-                                 </ul> 
-                            </li>
-                    		<!--- menu ---->
-                            <li class='dropdown'>
-                                <a href='#' class="dropdown-toggle" data-toggle="dropdown">دانشکده ها 
-                                <span class='caret'></span>
-                                </a>
-                                <ul class='dropdown-menu multi-level first-cat'>
-                                    <li class="dropdown-submenu">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										دانشکده مهندسی
+							<?php
+								$sql="select * from organization where top_id is null order by menu_order";
+								$result=mysql_query($sql);
+								while($row=mysql_fetch_assoc($result))
+								{
+									$cat1=mysql_query("select * from organization where top_id=$row[id] order by menu_order");
+									if(mysql_num_rows($cat1)==0)
+										echo "<li><a href='node.php?id=$row[id]'>$row[name]</li>";	
+									else
+									{
+										echo "<li class='dropdown'><a href='node.php?id=$row[id]'>$row[name] <span class='caret'></span></a>";
+										echo "<ul class='dropdown-menu multi-level first-cat'>";
+										while($cat1row=mysql_fetch_assoc($cat1))
+											{
+												$cat2=mysql_query("select * from organization where top_id=$cat1row[id] order by menu_order");
+												if(mysql_num_rows($cat2)==0)
+													echo "<li><a href='node.php?id=$cat1row[id]'>$cat1row[name]</a></li>"; 	
+													else
+													{
+														 echo "<li class='dropdown-submenu'>";
+														 echo "<a href='node.php?id=$cat1row[id]' class='dropdown-toggle' data-toggle='dropdown'>$cat1row[name]
 										<span class='glyphicon glyphicon-triangle-left'></span>
-										</a>
-										<ul class="dropdown-menu">
-											<li><a href="department.php?id=2">مهندسی فناوری اطلاعات</a></li>
-											<li><a href="#">مهندسی برق</a></li>
-											<li><a href="#">مهندسی نرم افزار</a></li>
-										</ul>
-									</li>
-									<li class="dropdown-submenu">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										دانشکده علوم انسانی<span class='glyphicon glyphicon-triangle-left'></span></a>
-										
-										<ul class="dropdown-menu">
-											<li><a href="#">مدیریت</a></li>
-											<li><a href="#">معارف</a></li>
-										</ul>
-									</li>
-                                 </ul>
-                            </li>
-							<li><a href='department.php?id=1'>آموزش</a></li>
-                            <li><a href='department.php?id=4'>امور پژوهشی</a></li>
-                            <li><a href='department.php?id=3'>امور دانشجویی</a></li>
-							<li><a href='department.php?id=7'>امور مالی</a></li>
-                            <!--- menu ---->
-                            <li class='dropdown'>
-                            	<a href='department.php?id=4'>تحصیلات تکمیلی
-                                <span class='caret'></span>
-                                </a>
-                                <ul class='dropdown-menu first-cat' role='menu' aria-labelledby='dropDownMenu'>
-                                    <li><a href='department.php?id=4'>فرم ها</a></li>
-                                    <li><a href='department.php?id=4'>اطلاعیه ها</a></li>
-                                 </ul>
-                            </li>
+										</a>";
+														echo "<ul class='dropdown-menu'>";
+														while($cat2row=mysql_fetch_assoc($cat2))
+														{
+															echo "<li><a href='node.php?id=$cat2row[id]'>$cat2row[name]</a></li>";
+														}
+														echo "</ul>";
+														echo "</li>";
+													}
+											}
+										echo "</ul>";
+										echo"</li>";
+									}
+								}
+							?>
                         </ul>
                         <form action='search.php' method='get' class='navbar-form'>
                             <div class='form-group'>

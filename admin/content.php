@@ -17,7 +17,20 @@
 			$ctitle='';
 		$cbody=htmlspecialchars($_POST['cbody']);
 		
-		$org=htmlspecialchars($_POST['org']);
+	
+		if (isset($_POST['menu3']) && $_POST['menu3']!=-1)
+			$org=htmlspecialchars($_POST['menu3']);
+			else
+				if (isset($_POST['menu2']) && $_POST['menu2']!=-1)
+				$org=htmlspecialchars($_POST['menu2']);
+				else
+					if (isset($_POST['menu1']))
+						$org=htmlspecialchars($_POST['menu1']);
+						
+					
+					
+			
+		
 		$date=htmlspecialchars($_POST['date']);
         $er=0;
 		//if (!isset($ntitle) || trim($ntitle)=='')
@@ -171,32 +184,23 @@
 			if(isset($pic))
 			{
   			  		move_uploaded_file($_FILES['pic']['tmp_name'], '../uploads/pic/'.$pic);
-					echo "<span>../uploads/pic/$pic</span>";
+					echo "<div style=' direction: ltr;text-align:center;'>../uploads/pic/$pic</div>";
 			}
 		}
    ?>
 </form>
 </div>
-<h3>ادیتور HTML <a href='http://www.html.am/html-editors/online-html-editor.cfm' target='_blank'>Online HTML Editor</a></h3>
+<h3>ادیتور HTML <a href='https://html-online.com/editor/' target='_blank'>Online HTML Editor</a></h3>
 
 	<form action='<?=$_SERVER['PHP_SELF']?>' method="POST" enctype="multipart/form-data">
     	<table cellpadding="0" cellspacing="0" border="0"> 
-    	<tr>
-        	<td><input type='checkbox' id='hasTitle' name='hasTitle' checked='checked' value='1'>عنوان</td><td><input type="text" size="200" name='ctitle' id='ctitle'
-			<?php if(isset($ntitle)) echo " value='$ctitle'";?>></td>
-            <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
-        </tr>
-        <tr>
-        	<td>محتوا</td><td>
-            <textarea name='cbody' rows="20" cols="100"><?php if(isset($cbody)) echo trim($cbody);?></textarea></td>
-            <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*</span>"; ?></td>
-        </tr>
-        <tr><td>مرجع اطلاعیه</td>
+    	<tr><td></td>
         <td>
-        <select name='org'>
+		<span>منو سطح 1</span>
+        <select id='menu1' name='menu1'>
            <option value='-1' selected></option>
 		<?php
-		 $result=mysql_query("select * from organization order by name");
+		 $result=mysql_query("select * from organization where top_id is null order by menu_order");
 		 while($row=mysql_fetch_assoc($result))
 		 {
 			$selected=''; 
@@ -206,10 +210,31 @@
 		 }
 		?>
         </select>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>منو سطح 2</span>
+        <select id='menu2' name='menu2'>
+           <option value='-1' selected></option>
+	    </select>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>منو سطح 3</span>
+        <select id='menu3' name='menu3'>
+           <option value='-1' selected></option>
+	    </select>
         <?php if(isset($er) && ($er & 0b00100) >0) echo "<span style='color:red'>*</span>"; ?></td></tr>
         <tr><td>تاریخ</td><td><input type='text' id='observer' name='date'/>
         <?php if(isset($er) && ($er & 0b01000) >0) echo "<span style='color:red'>*</span>"; ?>
         </td></tr>
+
+		<tr>
+        	<td><input type='checkbox' id='hasTitle' name='hasTitle' checked='checked' value='1'>عنوان</td><td><input type="text" size="200" name='ctitle' id='ctitle'
+			<?php if(isset($ntitle)) echo " value='$ctitle'";?>></td>
+            <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
+        </tr>
+        <tr>
+        	<td>محتوا</td><td>
+            <textarea name='cbody' rows="20" cols="100"><?php if(isset($cbody)) echo trim($cbody);?></textarea></td>
+            <td><?php if(isset($er) && ($er & 0b00010) >0) echo "<span style='color:red'>*</span>"; ?></td>
+        </tr>
         <tr><td>ضمیمه 1</td><td><input type='file' name="attach1" /></td></tr>
         <tr><td>ضمیمه 2</td><td><input type='file' name="attach2" /></td></tr>
         <tr><td>ضمیمه 3</td><td><input type='file' name="attach3" /></td></tr>

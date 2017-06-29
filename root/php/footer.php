@@ -13,8 +13,9 @@
                 <div class="col-md-4 col-sm-6 col-xs-6 footer-list">
                 	<h4>پیوندها</h4>
                     <ul>
-                    <li><a href='https://www.msrt.ir'>وزارت علوم تحقیقات و فناوری</a></li>
-                    <li><a href='http://www.ui.ac.ir/'>دانشگاه اصفهان</a></li>
+                    <li><a href='https://www.msrt.ir' target="_blank">وزارت علوم تحقیقات و فناوری</a></li>
+                    <li><a href='http://www.ut.ac.ir/' target="_blank">دانشگاه تهران</a></li>
+					<li><a href='http://www.sanjesh.org/' target="_blank">سازمان سنجش</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-md-offset-1 col-sm-12">

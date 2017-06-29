@@ -77,6 +77,22 @@ if(isset($_POST['action']))
 				exit();	
 		}
 	}
+	if ($action==4)
+	{
+		$id=$_POST['id'];
+		$data=array();
+		$result=mysql_query("select * from organization where top_id=$id");
+		if($result)
+		{
+				while($row=mysql_fetch_assoc($result))
+				{
+					$data[$row['id']]=array();
+					$data[$row['id']]['name']=$row['name'];
+				}	
+				echo json_encode($data);;
+				exit();	
+		}
+	}
 
 }
 ////////////////////////////////////////////////////////////////////
