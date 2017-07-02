@@ -15,24 +15,26 @@
 							if(isset($_GET['submit']))
 							{
 								$search=htmlspecialchars($_GET['search']);
-								$terms=explode(' ', $search);
-								$w='';
-								foreach($terms as $i)
-									$w.="(ntitle like '%$i%' or ndesc like '%$i%') and";
-								$w.=' 1=1';
-								$result=mysql_query("select distinct * from notification where $w");
-								if(mysql_num_rows($result)==0) 
-									echo '<b>هيچ موردی در رابطه با جستجوي شما پيدا نشد!</b>';
-								else
-									while($row=mysql_fetch_assoc($result))
-									{
-										echo '<div class="panel panel-default" style="margin:5px;">';
-										echo '<div class="panel-body">';
-										echo "<a href='notifdetails.php?id=$row[nid]'>$row[ntitle]</a>";
-										echo '</div></div>';
-									}
-
-								////////////////////////////////////////
+								if(isset($search) && trim($search)!='')
+								{
+									$terms=explode(' ', $search);
+									$w='';
+									foreach($terms as $i)
+										$w.="(ntitle like '%$i%' or ndesc like '%$i%') and";
+									$w.=' 1=1';
+									$result=mysql_query("select distinct * from notification where $w");
+									if(mysql_num_rows($result)==0) 
+										echo '<b>هيچ موردی در رابطه با جستجوي شما پيدا نشد!</b>';
+									else
+										while($row=mysql_fetch_assoc($result))
+										{
+											echo '<div class="panel panel-default" style="margin:5px;">';
+											echo '<div class="panel-body">';
+											echo "<a href='notifdetails.php?id=$row[nid]'>$row[ntitle]</a>";
+											echo '</div></div>';
+										}
+								}
+							////////////////////////////////////////
 
 							}
 						?>
