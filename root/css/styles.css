@@ -146,6 +146,7 @@ ul.nav li.dropdown  ul.dropdown-menu
 /*===== menu ============*/
 .dropdown-menu{
 	text-align: right;
+		background-color:#CC9;
 }
 	
 .dropdown-submenu {
