@@ -37,6 +37,8 @@
 										}
 									
 									}
+								else
+									echo "<div class='panel-body'>$content</div>";
 								
 								
 
