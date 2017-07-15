@@ -17,6 +17,7 @@
 				$hasTitle=$row['hasTitle'];
 				$org=$row['orgid'];
 				$date=$row['cdate'];
+				$collapse=$row['collapse'];
 				//$attach1=$row['attachment1'];
 				//$attach2=$row['attachment2'];
 				//$attach3=$row['attachment3'];
@@ -28,6 +29,11 @@
 		$ctitle=htmlspecialchars($_POST['ctitle']);
 		$cbody=htmlspecialchars($_POST['cbody']);
 		$org=htmlspecialchars($_POST['org']);
+		
+		if(isset($_POST['collapse']))
+			$collapse=1;
+		else 
+			$collapse=0;
 		if(isset($_POST['hasTitle']))
 			$hasTitle=htmlspecialchars($_POST['hasTitle']);
 		else 
@@ -36,7 +42,8 @@
 				set ctitle='$ctitle',
 				    cbody='$cbody',
 					orgid=$org,
-					hasTitle=$hasTitle
+					hasTitle=$hasTitle,
+					collapse=$collapse
 				where cid=$cid";
 		$result=mysql_query($sql);
 		if ($result)
@@ -80,6 +87,9 @@
             <input type="text" size="200"  name='ctitle' id='ctitle' value='<?=$ctitle?>' <?php if($hasTitle==0) echo "disabled"; ?>></td>
             <td></td>
         </tr>
+		<tr>
+			<td></td><td><input type='checkbox' id='collapse' name='collapse' value='1' <?php if($collapse==1) echo "checked='checked'";?>>عنوان از قبل بسته باشد</td><td></td>
+		</tr>
         <tr>
         	<td>محتوا</td><td>
             <textarea name='cbody' rows="20" cols="100"><?=trim(html_entity_decode($cbody))?></textarea></td>

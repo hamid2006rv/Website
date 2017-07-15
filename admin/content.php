@@ -28,7 +28,10 @@
 						$org=htmlspecialchars($_POST['menu1']);
 						
 					
-					
+		if(isset($_POST['collapse']))
+			$collapse=1;
+		else
+			$collapse=0;			
 			
 		
 		$date=htmlspecialchars($_POST['date']);
@@ -73,7 +76,7 @@
 				$sql.="'$attach3',";
 			else
 				$sql.="null,";
-			$sql.="$hasTitle)";
+			$sql.="$hasTitle,$collapse)";
 
 			$result=mysql_query($sql);
 			if ($result)
@@ -230,6 +233,9 @@
 			<?php if(isset($ntitle)) echo " value='$ctitle'";?>></td>
             <td><?php if(isset($er) && ($er & 0b00001)>0) echo "<span style='color:red'>*</span>"; ?></td>
         </tr>
+		<tr>
+			<td></td><td><input type='checkbox' id='collapse' name='collapse' value='1'>عنوان از قبل بسته باشد</td><td></td>
+		</tr>
         <tr>
         	<td>محتوا</td><td>
             <textarea name='cbody' rows="20" cols="100"><?php if(isset($cbody)) echo trim($cbody);?></textarea></td>

@@ -18,24 +18,38 @@
 					while($row=mysql_fetch_assoc($result))
 					{
 						echo "<div class='col-md-12 col-sm-12 col-xs-12'>";
-						echo "<div class='panel panel-default' style='margin:5px;'>";
-						
-					    if($row['hasTitle']==1)
-							echo "<div class='panel-heading'>$row[ctitle]</div>";
-							
-						$content=htmlspecialchars_decode($row['cbody']);
-						echo "<div class='panel-body'>$content</div>";
+							echo "<div class='panel-group'>";						
+								echo "<div class='panel panel-default' style='margin:5px;'>";
+								$content=htmlspecialchars_decode($row['cbody']);
+								if($row['hasTitle']==1)
+									{
+										if($row['collapse']==0)
+										{
+											echo "<div class='panel-heading'>$row[ctitle]</div>";
+											echo "<div class='panel-body'>$content</div>";
+										}
+										else 
+										{
+											echo "<div class='panel-heading'>
+												  <a data-toggle='collapse' href='#collapse$row[cid]'>$row[ctitle]</a></div>";
+											echo "<div id='collapse$row[cid]' 
+											class='panel-body panel-collapse collapse'>$content</div>";
+										}
+									
+									}
+								
+								
 
-						if ($row['attachment1']!=null)
-							echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment1]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment1]</a></div>";
-						
-						if ($row['attachment2']!=null)
-							echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment2]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment2]</a></div>";
+								if ($row['attachment1']!=null)
+									echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment1]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment1]</a></div>";
+								
+								if ($row['attachment2']!=null)
+									echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment2]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment2]</a></div>";
 
-						if ($row['attachment3']!=null)
-							echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment3]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment3]</a></div>";
-
-						echo "</div>";
+								if ($row['attachment3']!=null)
+									echo "<div style='padding:5px;'><a href='../uploads/cont/c$row[cid]/$row[attachment3]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment3]</a></div>";
+								echo "</div>";
+							echo "</div>";
 						echo "</div>";
 					}
 					
