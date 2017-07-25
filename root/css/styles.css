@@ -170,6 +170,17 @@ ul.nav li.dropdown  ul.dropdown-menu
     display: block;
 }
 /*===== caresoul =======*/
+#myCarousel
+{
+	width: 70%;
+	margin: 0 auto;
+}
+@media screen and (max-width: 800px) {
+	#myCarousel
+	{
+		width: 100%;
+	}
+}
 .carousel-caption{
 	background: rgba(255, 255, 255, .2);
 	color:#fff;
