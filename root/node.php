@@ -13,6 +13,37 @@
         <div class='row'>
 			<div class='col-md-9 col-sm-12 col-xs-12'>
             	<div class='row'>
+					<?php
+					if(isset($id))
+					{
+						echo '<div>';
+						echo '<ol class="breadcrumb page-nav">';
+						  $liitems='';
+						  $result=mysql_query("select * from organization where id=$id");
+						  $row=mysql_fetch_assoc($result);
+						  $top_id=$row['top_id'];
+						  $liitems=$liitems. "<li class='active'>$row[name]</li>";
+
+						  if($top_id!=null)
+							{
+								$result=mysql_query("select * from organization where id=$top_id");	
+						 		$row=mysql_fetch_assoc($result);
+								$top_id=$row['top_id'];
+								$liitems="<li><a href='node.php?id=$row[id]'>$row[name]</a></li>".$liitems;
+							}
+							
+						 if($top_id!=null)
+							{
+								$result=mysql_query("select * from organization where id=$top_id");	
+						 		$row=mysql_fetch_assoc($result);
+								$top_id=$row['top_id'];
+								$liitems="<li><a href='node.php?id=$row[id]'>$row[name]</a></li>".$liitems;
+							}
+						echo $liitems;
+						echo '</ol>';
+						echo '</div>';
+					}
+					?>
                 	<?php
 					$result=mysql_query("select * from content where orgid=$id");
 					while($row=mysql_fetch_assoc($result))

@@ -200,6 +200,16 @@ ul.nav li.dropdown  ul.dropdown-menu
 .carousel-caption h1,.carousel-caption h2{
 	text-shadow: 2px 2px 8px #009;
 }
+/*========= page navigation ===========*/
+.page-nav
+{
+	background-color: #f6f6f6;
+
+}
+.page-nav a {
+    color: #1a44bd;
+}
+
 /*==========*/
 
 .main-title {
