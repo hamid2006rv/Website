@@ -22,7 +22,7 @@
 									else
 									{
 										echo "<li class='dropdown'><a href='node.php?id=$row[id]'>$row[name] <span class='caret'></span></a>";
-										echo "<ul class='dropdown-menu multi-level first-cat'>";
+										echo "<ul class='dropdown-menu'>";
 										while($cat1row=mysql_fetch_assoc($cat1))
 											{
 												$cat2=mysql_query("select * from organization where top_id=$cat1row[id] order by menu_order");
@@ -30,11 +30,10 @@
 													echo "<li><a href='node.php?id=$cat1row[id]'>$cat1row[name]</a></li>"; 	
 													else
 													{
-														 echo "<li class='dropdown-submenu'>";
-														 echo "<a href='node.php?id=$cat1row[id]' class='dropdown-toggle' data-toggle='dropdown'>$cat1row[name]
-										<span class='glyphicon glyphicon-triangle-left'></span>
-										</a>";
-														echo "<ul class='dropdown-menu'>";
+														 echo "<li>";
+														 echo "<a href='node.php?id=$cat1row[id]'>$cat1row[name]
+										<span class='glyphicon glyphicon-triangle-left'></span></a>";
+														echo "<ul class='dropdown-menu sub-menu'>";
 														while($cat2row=mysql_fetch_assoc($cat2))
 														{
 															echo "<li><a href='node.php?id=$cat2row[id]'>$cat2row[name]</a></li>";
