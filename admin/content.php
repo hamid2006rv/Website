@@ -257,6 +257,46 @@
         
     </form>
     
+<br><hr>
+<form action='<?=$_SERVER['PHP_SELF']?>' method='get'>
+<span>منو سطح 1</span>
+        <select id='menux1' name='menux1'>
+           <option value='-1' selected></option>
+		<?php
+		 $result=mysql_query("select * from organization where top_id is null order by menu_order");
+		 while($row=mysql_fetch_assoc($result))
+		 {
+			$selected=''; 
+			if (isset($org) && $org==$row[id])
+				$selected='selected';
+			echo "<option value='$row[id]' $selected>$row[name]</option>";	 
+		 }
+		?>
+        </select>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>منو سطح 2</span>
+        <select id='menux2' name='menux2'>
+           <option value='-1' selected></option>
+	    </select>
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<span>منو سطح 3</span>
+        <select id='menux3' name='menux3'>
+           <option value='-1' selected></option>
+	    </select>
+		<input type='submit' name='show' value='نمایش'>
+</form>
+<?php
+	if (isset($_GET['show'])):
+
+	if (isset($_GET['menux3']) && $_GET['menux3']!=-1)
+			$orgx=htmlspecialchars($_GET['menux3']);
+			else
+				if (isset($_GET['menux2']) && $_GET['menux2']!=-1)
+				$orgx=htmlspecialchars($_GET['menux2']);
+				else
+					if (isset($_GET['menux1']))
+						$orgx=htmlspecialchars($_GET['menux1']);
+?>
 	<table class='table' style='width:100%'>
 	<tr class='row'>
         <th class='head'></th>
@@ -273,6 +313,7 @@
     <?php
 		$result=mysql_query("select * from content 
 		                     inner join organization on content.orgid =organization.id
+							 where content.orgid=$orgx
 							 order by cdate desc");
 		while($row=mysql_fetch_assoc($result))
 		{
@@ -291,6 +332,8 @@
 		}
 	?>
 	</table>
+<?php endif;?>
+
 </div>
 </div>
 	
