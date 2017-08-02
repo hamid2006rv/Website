@@ -18,7 +18,12 @@
 								{
 									$cat1=mysql_query("select * from organization where top_id=$row[id] order by menu_order");
 									if(mysql_num_rows($cat1)==0)
-										echo "<li><a href='node.php?id=$row[id]'>$row[name]</li>";	
+									{
+										if ($row['external_flag']==0)
+											echo "<li><a href='node.php?id=$row[id]'>$row[name]</li>";
+										else
+											echo "<li><a href='$row[url]'>$row[name]</li>";
+									}
 									else
 									{
 										echo "<li class='dropdown'><a href='node.php?id=$row[id]'>$row[name] <span class='caret'></span></a>";
@@ -27,7 +32,12 @@
 											{
 												$cat2=mysql_query("select * from organization where top_id=$cat1row[id] order by menu_order");
 												if(mysql_num_rows($cat2)==0)
-													echo "<li><a href='node.php?id=$cat1row[id]'>$cat1row[name]</a></li>"; 	
+												{	
+													if($cat1row['external_flag']==0)
+														echo "<li><a href='node.php?id=$cat1row[id]'>$cat1row[name]</a></li>";
+													else
+														echo "<li><a href='$cat1row[url]'>$cat1row[name]</a></li>";
+												}
 													else
 													{
 														 echo "<li>";
@@ -36,7 +46,11 @@
 														echo "<ul class='dropdown-menu sub-menu'>";
 														while($cat2row=mysql_fetch_assoc($cat2))
 														{
+															if($cat2row['external_flag']==0)
 															echo "<li><a href='node.php?id=$cat2row[id]'>$cat2row[name]</a></li>";
+															else
+															echo "<li><a href='$cat2row[url]'>$cat2row[name]</a></li>";
+
 														}
 														echo "</ul>";
 														echo "</li>";
