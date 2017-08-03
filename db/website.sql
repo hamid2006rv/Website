@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2017 at 10:13 AM
+-- Generation Time: Aug 03, 2017 at 08:49 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -124,6 +124,8 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   `top_id` int(11) DEFAULT NULL,
   `menu_order` int(11) NOT NULL,
+  `external_flag` int(11) NOT NULL DEFAULT '0',
+  `url` varchar(256) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
@@ -131,27 +133,27 @@ CREATE TABLE IF NOT EXISTS `organization` (
 -- Dumping data for table `organization`
 --
 
-INSERT INTO `organization` (`id`, `name`, `top_id`, `menu_order`) VALUES
-(8, 'درباره دانشگاه', NULL, 2),
-(9, 'دانشکده ها', NULL, 3),
-(10, 'آموزش', NULL, 4),
-(11, 'امور پژوهشی', NULL, 5),
-(12, 'امور دانشجویی', NULL, 6),
-(13, 'امور مالی', NULL, 7),
-(14, 'تحصیلات تکمیلی', NULL, 8),
-(17, 'دانشگاه علوم و فناوری سپاهان', 8, 1),
-(18, 'ریاست دانشگاه', 8, 2),
-(19, 'هیات موسس', 8, 3),
-(20, 'اعضای هیات علمی', 8, 4),
-(21, 'فنی و مهندسی', 9, 1),
-(22, 'علوم انسانی', 9, 2),
-(23, 'مهندسی فناوری اطلاعات', 21, 1),
-(24, 'مهندسی برق', 21, 2),
-(25, 'مهندسی کامپیوتر', 21, 3),
-(26, 'مهندسی عمران', 21, 3),
-(27, 'مهندسی پزشکی', 21, 4),
-(28, 'فرم ها', 14, 1),
-(29, 'اطلاعیه ها', 14, 2);
+INSERT INTO `organization` (`id`, `name`, `top_id`, `menu_order`, `external_flag`, `url`) VALUES
+(8, 'درباره دانشگاه', NULL, 2, 0, ''),
+(9, 'دانشکده ها', NULL, 3, 0, ''),
+(10, 'آموزش', NULL, 4, 0, ''),
+(11, 'امور پژوهشی', NULL, 5, 0, ''),
+(12, 'امور دانشجویی', NULL, 6, 0, ''),
+(13, 'امور مالی', NULL, 7, 0, ''),
+(14, 'تحصیلات تکمیلی', NULL, 8, 0, ''),
+(17, 'دانشگاه علوم و فناوری سپاهان', 8, 1, 0, ''),
+(18, 'ریاست دانشگاه', 8, 2, 0, ''),
+(19, 'هیات موسس', 8, 3, 0, ''),
+(20, 'اعضای هیات علمی', 8, 4, 0, ''),
+(21, 'فنی و مهندسی', 9, 1, 0, ''),
+(22, 'علوم انسانی', 9, 2, 0, ''),
+(23, 'مهندسی فناوری اطلاعات', 21, 1, 0, ''),
+(24, 'مهندسی برق', 21, 2, 0, ''),
+(25, 'مهندسی کامپیوتر', 21, 3, 0, ''),
+(26, 'مهندسی عمران', 21, 3, 0, ''),
+(27, 'مهندسی پزشکی', 21, 4, 0, ''),
+(28, 'فرم ها', 14, 1, 0, ''),
+(29, 'اطلاعیه ها', 14, 2, 0, '');
 
 -- --------------------------------------------------------
 
@@ -168,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 --
 
 INSERT INTO `settings` (`num_visited`) VALUES
-(365);
+(402);
 
 -- --------------------------------------------------------
 
