@@ -35,6 +35,7 @@ $(document).ready(function(){
 					var k=Object.keys(data)[i];
 					$('#menu2').append("<option value='"+k+"'>"+data[k].name+"</option>");
 					}
+				$('#menu2').append("<option value='-1' selected></option>");
 				$('#menu2').find('option').first().attr('selected','selected');
 				$('#menu2').change();
 			}catch(ex){}
@@ -53,6 +54,7 @@ $(document).ready(function(){
 					var k=Object.keys(data)[i];
 					$('#menu3').append("<option value='"+k+"'>"+data[k].name+"</option>");
 					}
+				$('#menu3').append("<option value='-1' selected></option>");
 				$('#menu3').find('option').first().attr('selected','selected');
 			}catch(ex){}
 			});

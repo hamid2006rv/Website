@@ -24,7 +24,7 @@
 				if (isset($_POST['menu2']) && $_POST['menu2']!=-1)
 				$org=htmlspecialchars($_POST['menu2']);
 				else
-					if (isset($_POST['menu1']))
+					if (isset($_POST['menu1']) && $_POST['menu3']!=-1)
 						$org=htmlspecialchars($_POST['menu1']);
 						
 					
