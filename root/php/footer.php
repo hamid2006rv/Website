@@ -7,7 +7,8 @@
                     <li><a href='#'>تقویم آموزشی</a></li>
                     <li><a href='#'>اعضای هیات علمی</a></li>
                     <li><a href='notification.php'>اطلاعیه ها</a></li>
-                    <li><a href='#'>کتابخانه</a></li>
+                    <li><a href='node.php?id=35'>کتابخانه</a></li>
+					<li><a href='album.html'>گالری تصاویر</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-6 footer-list">
