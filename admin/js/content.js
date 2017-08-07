@@ -73,6 +73,7 @@ $(document).ready(function(){
 					var k=Object.keys(data)[i];
 					$('#menux2').append("<option value='"+k+"'>"+data[k].name+"</option>");
 					}
+				$('#menux2').append("<option value='-1' selected></option>");
 				$('#menux2').find('option').first().attr('selected','selected');
 				$('#menux2').change();
 			}catch(ex){}
@@ -91,6 +92,7 @@ $(document).ready(function(){
 					var k=Object.keys(data)[i];
 					$('#menux3').append("<option value='"+k+"'>"+data[k].name+"</option>");
 					}
+				$('#menux3').append("<option value='-1' selected></option>");
 				$('#menux3').find('option').first().attr('selected','selected');
 			}catch(ex){}
 			});
