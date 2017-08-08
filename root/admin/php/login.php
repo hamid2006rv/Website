@@ -2,8 +2,8 @@
 	include_once('init.php');
 	if(isset($_SESSION['user_id']))
 	unset($_SESSION['user_id']);
-	
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/website/admin/securimage/securimage.php';
+
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/website/root/admin/securimage/securimage.php';
 	$securimage = new Securimage();
 	
 	if(isset($_POST['submit']))

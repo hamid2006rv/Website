@@ -21,7 +21,7 @@
 						echo "<div class='top-news' >";
 						if($row)
 							{
-								echo "<img src='../uploads/news/e$row[eid]/$row[epic]' alt='news' style='margin: 5px 0 5px;width:70%;'>";
+								echo "<img src='uploads/news/e$row[eid]/$row[epic]' alt='news' style='margin: 5px 0 5px;width:70%;'>";
 								echo "<div class='text-news' style='padding-right:0px;'>";
 								$date=explode('-',$row['edate']);
 								echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
@@ -43,7 +43,7 @@
 							echo "<div class='panel panel-default' style='margin:5px;'>";
 							echo "<div class='panel-body'>";
                            	echo  "<div>
-							<a href='news.php?id=$row[eid]'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>  
+							<a href='news.php?id=$row[eid]'><img src='uploads/news/e$row[eid]/thumbs/$row[epic]'></a>  
 							<a href='news.php?id=$row[eid]'>$row[etitle]</a></div>";
                             echo "</div></div>";
 						}

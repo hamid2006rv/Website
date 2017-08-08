@@ -9,31 +9,31 @@
       </ol>
 		<section class='carousel-inner'>
         	<div class='active item'>
-            	<img src='img/1.gif' style='width:100%'>
+            	<img src='img/1.jpg' style='width:100%'>
             	<div class="carousel-caption hidden-xs">
                 	<h1>موسسه آموزش عالی سپاهان در سال 95 به <strong>سطح یک</strong> کشوری ارتقاء یافته است.</h1>
       			</div>
             </div>
             <div class='item'>
-            	 <img src='img/2.gif' style='width:100%'>
+            	 <img src='img/2.jpg' style='width:100%'>
             	 <div class="carousel-caption hidden-xs">
                     <h2>دانشگاه سپاهان در بسیاری از رشته ها در مقاطع کاردانی, کارشناسی و کارشناسی ارشد دانشجو می پذیرد</h2>
       			</div>
             </div>
             <div class='item'>
-            <img src='img/3.gif' style='width:100%'>
+            <img src='img/3.jpg' style='width:100%'>
 				<div class="carousel-caption hidden-xs">
 					<h1>دانشگاه سپاهان به مجهزترین کارگاه هاو آزمایشگاه ها تجهیز شده است.</h1>
 				</div>
             </div>
             <div class='item'>
-            	 <img src='img/4.gif' style='width:100%'>
+            	 <img src='img/4.jpg' style='width:100%'>
                  <div class="carousel-caption hidden-xs">
                     <h1>دانشگاه سپاهان به مجهزترین کارگاه هاو آزمایشگاه ها تجهیز شده است.</h1>
       			 </div>
             </div>
             <div class='item'>
-            	 <img src='img/5.gif' style='width:100%'>
+            	 <img src='img/5.jpg' style='width:100%'>
                  <div class="carousel-caption hidden-xs">
                     <h1>این دانشگاه هر سال تعداد زیادی فارغ التحصیل در رشته های فنی و مهندسی داشته است.</h1>
       			</div>

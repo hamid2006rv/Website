@@ -25,13 +25,13 @@
 						echo "</div><div>$row[ndesc]</div>";
 						
 						if ($row['attachment1']!=null)
-							echo "<div><a href='../uploads/notif/n$row[nid]/$row[attachment1]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment1]</a></div>";
+							echo "<div><a href='uploads/notif/n$row[nid]/$row[attachment1]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment1]</a></div>";
 						
 						if ($row['attachment2']!=null)
-							echo "<div><a href='../uploads/notif/n$row[nid]/$row[attachment2]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment2]</a></div>";
+							echo "<div><a href='uploads/notif/n$row[nid]/$row[attachment2]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment2]</a></div>";
 
 						if ($row['attachment3']!=null)
-							echo "<div><a href='../uploads/notif/n$row[nid]/$row[attachment3]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment3]</a></div>";
+							echo "<div><a href='uploads/notif/n$row[nid]/$row[attachment3]'><span class='glyphicon glyphicon-download-alt'></span>   $row[attachment3]</a></div>";
 
 						echo "</div>";
                         echo "</div>";

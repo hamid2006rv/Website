@@ -23,7 +23,7 @@
 						if($row)
 						{
 							echo "<a href='news.php?id=$row[eid]'>";
-							echo "<img src='../uploads/news/e$row[eid]/$row[epic]' alt='news'>";
+							echo "<img src='uploads/news/e$row[eid]/$row[epic]' alt='news'>";
 							echo "</a>";
 							echo "<div class='text-news'>";
 							$date=explode('-',$row['edate']);
@@ -40,7 +40,7 @@
 							$row=mysql_fetch_assoc($result);
 							if($row)
 							{
-								echo "<a href='news.php?id=$row[eid]'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+								echo "<a href='news.php?id=$row[eid]'><img src='uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
 								echo "<div class='text-news'>";
 								$date=explode('-',$row['edate']);
 								echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
@@ -56,7 +56,7 @@
 							$row=mysql_fetch_assoc($result);
 							if($row)
 							{
-								echo "<a href='news.php?id=$row[eid]'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+								echo "<a href='news.php?id=$row[eid]'><img src='uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
 								echo "<div class='text-news'>";
 								$date=explode('-',$row['edate']);
 								echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
@@ -74,7 +74,7 @@
 							$row=mysql_fetch_assoc($result);
 							if($row)
 							{
-								echo "<a href='news.php?id=$row[eid]'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+								echo "<a href='news.php?id=$row[eid]'><img src='uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
 								echo "<div class='text-news'>";
 								$date=explode('-',$row['edate']);
 								echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
@@ -90,7 +90,7 @@
 							$row=mysql_fetch_assoc($result);
 							if($row)
 							{
-								echo "<a href='news.php?id=$row[eid]'><img src='../uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
+								echo "<a href='news.php?id=$row[eid]'><img src='uploads/news/e$row[eid]/thumbs/$row[epic]'></a>";
 								echo "<div class='text-news'>";
 								$date=explode('-',$row['edate']);
 								echo "<span class='glyphicon glyphicon-calendar'></span> <span>".get_name_of_day($row['day_week']). " ".intval($date[2])." " .get_name_of_month($date[1])." $date[0] "."</span>";
