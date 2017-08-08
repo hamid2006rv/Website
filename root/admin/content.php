@@ -187,7 +187,7 @@
 			if(isset($pic))
 			{
   			  		move_uploaded_file($_FILES['pic']['tmp_name'], '../uploads/pic/'.$pic);
-					echo "<div style=' direction: ltr;text-align:center;'>../uploads/pic/$pic</div>";
+					echo "<div style=' direction: ltr;text-align:center;'>uploads/pic/$pic</div>";
 			}
 		}
    ?>
@@ -322,7 +322,7 @@
 			echo "<td class='col'><input class='delete' value='$row[cid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[cid]</td>";
 			echo "<td class='col'>$row[ctitle]</td>";
-			echo "<td class='col'>".html_entity_decode($row['cbody'])."</td>";
+			echo "<td class='col'>".html_entity_decode(str_replace('uploads/','../uploads/',$row['cbody']))."</td>";
 			echo "<td class='col'>$row[name]</td>";
 			echo "<td class='col'>$row[cdate]</td>";
 			echo "<td class='col'>$row[attachment1]</td>";
