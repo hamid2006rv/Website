@@ -45,7 +45,7 @@
 					}
 					?>
                 	<?php
-					$result=mysql_query("select * from content where orgid=$id");
+					$result=mysql_query("select * from content where orgid=$id order by cdate");
 					while($row=mysql_fetch_assoc($result))
 					{
 						echo "<div class='col-md-12 col-sm-12 col-xs-12'>";

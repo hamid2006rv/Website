@@ -27,7 +27,7 @@
 	{
 		$cid=htmlspecialchars($_POST['cid']);
 		$ctitle=htmlspecialchars($_POST['ctitle']);
-		$cbody=htmlspecialchars($_POST['cbody']);
+		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES);
 		$org=htmlspecialchars($_POST['org']);
 		
 		if(isset($_POST['collapse']))

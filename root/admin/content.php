@@ -15,7 +15,7 @@
 			$ctitle=htmlspecialchars($_POST['ctitle']);
 		else
 			$ctitle='';
-		$cbody=htmlspecialchars($_POST['cbody']);
+		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES);
 		
 	
 		if (isset($_POST['menu3']) && $_POST['menu3']!=-1)
@@ -150,6 +150,7 @@
 </head>
 
 <body dir='rtl'>
+
 <script>
  $(document).ready(function(e) {
         $("#observer").persianDatepicker({
