@@ -9,9 +9,9 @@
 	if(isset($_POST['submit']))
 	{
 
-		$username=htmlspecialchars($_POST['username']);
-		$password=htmlspecialchars($_POST['pass']);
-		$captcha=htmlspecialchars($_POST['captcha_code']);
+		$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
+		$password=htmlspecialchars($_POST['pass'],ENT_QUOTES);
+		$captcha=htmlspecialchars($_POST['captcha_code'],ENT_QUOTES);
 		if (!isset($captcha) || $securimage->check($captcha) == false) 
 			$error="کد امنیتی اشتباه است";
 		else
