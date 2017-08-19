@@ -165,7 +165,7 @@
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			echo "<td class='col'><a class='edit' href='newesContent.php?id=$row[eid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
+			echo "<td class='col'><a class='edit' href='updateNews.php?id=$row[eid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
 			echo "<td class='col'><input class='delete' value='$row[eid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[eid]</td>";
 			echo "<td class='col'>$row[etitle]</td>";
