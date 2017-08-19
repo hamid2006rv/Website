@@ -8,11 +8,11 @@
 	{
 		$day=date('N');
 		if(isset($_POST['etitle']))
-			$etitle=htmlspecialchars($_POST['etitle']);
+			$etitle=htmlspecialchars($_POST['etitle'],ENT_QUOTES);
 		if(isset($_POST['edesc']))
-			$edesc=htmlspecialchars($_POST['edesc']);
+			$edesc=htmlspecialchars($_POST['edesc'],ENT_QUOTES);
 		if(isset($_POST['date']))
-			$date=htmlspecialchars($_POST['date']);
+			$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
         $er=0;
 		if (!isset($etitle) || trim($etitle)=='')
 			$er=$er | 0b00001;
@@ -165,7 +165,7 @@
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
-			//echo "<td class='col'><a class='edit' href='updatenews.php?id=$row[eid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
+			echo "<td class='col'><a class='edit' href='newesContent.php?id=$row[eid]'><img width='20' height='20' src='pic/edit.png'></a></td>";
 			echo "<td class='col'><input class='delete' value='$row[eid]' type='image' width='20' height='20' src='pic/delete.png'></input></td>";
 			echo "<td class='col'>$row[eid]</td>";
 			echo "<td class='col'>$row[etitle]</td>";

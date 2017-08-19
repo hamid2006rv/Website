@@ -6,7 +6,7 @@
 <?php
 	if(isset($_GET['id']))
 	{
-		$cid=htmlspecialchars($_GET['id']);
+		$cid=htmlspecialchars($_GET['id'],ENT_QUOTES);
 		$result=mysql_query("select * from content where cid=$cid");
 		if($result && mysql_num_rows($result)==1)
 			{
@@ -25,17 +25,17 @@
 	}
     if(isset($_POST['save']))
 	{
-		$cid=htmlspecialchars($_POST['cid']);
-		$ctitle=htmlspecialchars($_POST['ctitle']);
+		$cid=htmlspecialchars($_POST['cid'],ENT_QUOTES);
+		$ctitle=htmlspecialchars($_POST['ctitle'],ENT_QUOTES);
 		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES);
-		$org=htmlspecialchars($_POST['org']);
+		$org=htmlspecialchars($_POST['org'],ENT_QUOTES);
 		
 		if(isset($_POST['collapse']))
 			$collapse=1;
 		else 
 			$collapse=0;
 		if(isset($_POST['hasTitle']))
-			$hasTitle=htmlspecialchars($_POST['hasTitle']);
+			$hasTitle=htmlspecialchars($_POST['hasTitle'],ENT_QUOTES);
 		else 
 			$hasTitle=0;
 		$sql="update content 

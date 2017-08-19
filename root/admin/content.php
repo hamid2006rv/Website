@@ -12,21 +12,21 @@
 			$hasTitle=0;
 			
 		if(isset($_POST['ctitle']))
-			$ctitle=htmlspecialchars($_POST['ctitle']);
+			$ctitle=htmlspecialchars($_POST['ctitle'],ENT_QUOTES);
 		else
 			$ctitle='';
 		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES);
 		
 	
 		if (isset($_POST['menu3']) && $_POST['menu3']!=-1)
-			$org=htmlspecialchars($_POST['menu3']);
+			$org=htmlspecialchars($_POST['menu3'],ENT_QUOTES);
 			else
 				if (isset($_POST['menu2']) && $_POST['menu2']!=-1)
-				$org=htmlspecialchars($_POST['menu2']);
+				$org=htmlspecialchars($_POST['menu2'],ENT_QUOTES);
 				else
 					if (isset($_POST['menu1']) && $_POST['menu1']!=-1)
-						$org=htmlspecialchars($_POST['menu1']);
-	 				
+						$org=htmlspecialchars($_POST['menu1'],ENT_QUOTES);
+						
 					
 		if(isset($_POST['collapse']))
 			$collapse=1;
@@ -34,7 +34,7 @@
 			$collapse=0;			
 			
 		
-		$date=htmlspecialchars($_POST['date']);
+		$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
         $er=0;
 		//if (!isset($ntitle) || trim($ntitle)=='')
 		//	$er=$er | 0b00001;
@@ -150,7 +150,6 @@
 </head>
 
 <body dir='rtl'>
-
 <script>
  $(document).ready(function(e) {
         $("#observer").persianDatepicker({
@@ -290,13 +289,13 @@
 	if (isset($_GET['show'])):
 
 	if (isset($_GET['menux3']) && $_GET['menux3']!=-1)
-			$orgx=htmlspecialchars($_GET['menux3']);
+			$orgx=htmlspecialchars($_GET['menux3'],ENT_QUOTES);
 			else
 				if (isset($_GET['menux2']) && $_GET['menux2']!=-1)
-				$orgx=htmlspecialchars($_GET['menux2']);
+				$orgx=htmlspecialchars($_GET['menux2'],ENT_QUOTES);
 				else
 					if (isset($_GET['menux1']))
-						$orgx=htmlspecialchars($_GET['menux1']);
+						$orgx=htmlspecialchars($_GET['menux1'],ENT_QUOTES);
 ?>
 	<table class='table' style='width:100%'>
 	<tr class='row'>

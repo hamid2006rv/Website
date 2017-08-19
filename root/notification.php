@@ -13,7 +13,7 @@
 				<?php
 				$page=0;
 				if(isset($_GET['page']))
-					$page=htmlspecialchars($_GET['page'])-1;
+					$page=htmlspecialchars($_GET['page'],ENT_QUOTES)-1;
 				$limit=10;
 				$page=$page*$limit;
 				

@@ -6,7 +6,7 @@
 
   if(!isset($_GET['id']))
   	header('HTTP/1.0 404 Not Found');
-  $id=htmlspecialchars($_GET['id']);
+  $id=htmlspecialchars($_GET['id'],ENT_QUOTES);
 
 ?>
  <div class='container'>

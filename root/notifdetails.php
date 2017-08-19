@@ -14,7 +14,7 @@
 				  <li><a href="notification.php">اطلاعیه ها</a></li>
 				</ol>
 				  <?php
-						$id=htmlspecialchars($_GET['id']);
+						$id=htmlspecialchars($_GET['id'],ENT_QUOTES);
 						$result=mysql_query("select * from notification where nid=$id");
 						$row=mysql_fetch_assoc($result);
 						echo "<div class='panel panel-default' style='margin:5px;'>";

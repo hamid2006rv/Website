@@ -8,10 +8,10 @@
 	{
 		$ndesc='';
 		$day=date('N');
-		$ntitle=htmlspecialchars($_POST['ntitle']);
-		$ndesc=htmlspecialchars($_POST['ndesc']);
-		$org=htmlspecialchars($_POST['org']);
-		$date=htmlspecialchars($_POST['date']);
+		$ntitle=htmlspecialchars($_POST['ntitle'],ENT_QUOTES);
+		$ndesc=htmlspecialchars($_POST['ndesc'],ENT_QUOTES);
+		$org=htmlspecialchars($_POST['org'],ENT_QUOTES);
+		$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
         $er=0;
 		if (!isset($ntitle) || trim($ntitle)=='')
 			$er=$er | 0b00001;
@@ -201,10 +201,7 @@
         <th class='head'>فایل همراه 3</th>
     </tr>
     <?php
-		$result=mysql_query("select * from notification 
-		                     inner join organization on notification.orgid =organization.id
-							 where orgid=1
-							 order by ndate desc");
+		$result=mysql_query("select * from notification order by ndate desc");
 		while($row=mysql_fetch_assoc($result))
 		{
 			echo "<tr class='row' >";
@@ -213,7 +210,7 @@
 			echo "<td class='col'>$row[nid]</td>";
 			echo "<td class='col'>$row[ntitle]</td>";
 			echo "<td class='col'>$row[ndesc]</td>";
-			echo "<td class='col'>$row[name]</td>";
+			echo "<td class='col'></td>";
 			echo "<td class='col'>$row[ndate]</td>";
 			echo "<td class='col'>$row[attachment1]</td>";
 			echo "<td class='col'>$row[attachment2]</td>";
