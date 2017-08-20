@@ -71,8 +71,12 @@
 <div id='menu'>
 <ul>
 	<li><a href='index.php'>اطلاعیه ها</a></li>
+	<?php 
+	if($_SESSION['user_id']==1):
+	?>
 	<li><a href='content.php'>محتوای سایت</a></li>
 	<li><a href='news.php'>اخبار</a></li>
+	<?php endif;?>
     <li><a href='php/login.php'>خروج</a></li>
 </ul>
 </div>
