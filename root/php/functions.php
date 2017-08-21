@@ -4,7 +4,7 @@
   {
 	switch($d)
 	  {
-		case 0: return 'یکشنبه';break;
+		case 7: return 'یکشنبه';break;
 		case 1: return 'دوشنبه';break;
 		case 2: return 'سه شنبه';break;
 		case 3: return 'چهارشنبه';break;
