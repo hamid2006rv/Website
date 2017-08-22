@@ -19,7 +19,7 @@
 				
 				
 				
-				$result=mysql_query("select * from notification where orgid=$orgid order by ndate desc  limit $page,$limit");
+				$result=mysql_query("select * from notification where orgid=$orgid order by ndate desc, nid desc  limit $page,$limit");
 				while($row=mysql_fetch_assoc($result))
 				{
 					echo "<div class='notification'>";

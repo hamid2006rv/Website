@@ -111,7 +111,7 @@
                 </div>
 
 				<?php
-				$result=mysql_query("select * from notification where orgid=$orgid order by ndate desc limit 0,6");
+				$result=mysql_query("select * from notification where orgid=$orgid order by ndate desc, nid desc limit 0,6");
 				while($row=mysql_fetch_assoc($result))
 				{
 					echo "<div class='notification'>";
