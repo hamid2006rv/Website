@@ -15,7 +15,7 @@
 						echo "<div class='row'>";
 						echo "<div class='col-md-9 col-sm-12 col-xs-12'>";
 						
-						$id=htmlspecialchars($_GET['id'],ENT_QUOTES);
+						$id=(int)htmlspecialchars($_GET['id'],ENT_QUOTES);
 						$result=mysql_query("select * from news where eid=$id");
 						$row=mysql_fetch_assoc($result);
 						echo "<div class='top-news' >";
