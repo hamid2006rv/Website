@@ -8,10 +8,10 @@
 	{
 		$ndesc='';
 		$day=date('N');
-		$ntitle=htmlspecialchars($_POST['ntitle'],ENT_QUOTES);
-		$ndesc=htmlspecialchars($_POST['ndesc'],ENT_QUOTES);
-		$org=htmlspecialchars($_POST['org'],ENT_QUOTES);
-		$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
+		$ntitle=strip_string($_POST['ntitle']);
+		$ndesc=strip_string($_POST['ndesc']);
+		$org=strip_string($_POST['org']);
+		$date=strip_string($_POST['date']);
         $er=0;
 		if (!isset($ntitle) || trim($ntitle)=='')
 			$er=$er | 0b00001;
@@ -27,15 +27,15 @@
 			
 		if($_FILES['attach1']['error']==0)
 			{
-				$attach1= $_FILES['attach1']['name'];	
+				$attach1= strip_string($_FILES['attach1']['name']);	
 			}
 		if($_FILES['attach2']['error']==0)
 			{
-				$attach2= $_FILES['attach2']['name'];	
+				$attach2= strip_string($_FILES['attach2']['name']);	
 			}
 		if($_FILES['attach3']['error']==0)
 			{
-				$attach3= $_FILES['attach3']['name'];	
+				$attach3= strip_string($_FILES['attach3']['name']);	
 			}
 		if($er==0)
 		{

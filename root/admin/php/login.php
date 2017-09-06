@@ -1,5 +1,6 @@
 <?php
 	include_once('init.php');
+	include_once('functions.php');
 	if(isset($_SESSION['user_id']))
 	unset($_SESSION['user_id']);
 
@@ -9,9 +10,9 @@
 	if(isset($_POST['submit']))
 	{
 
-		$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
-		$password=htmlspecialchars($_POST['pass'],ENT_QUOTES);
-		$captcha=htmlspecialchars($_POST['captcha_code'],ENT_QUOTES);
+		$username=strip_string($_POST['username']);
+		$password=strip_string($_POST['pass']);
+		$captcha=strip_string($_POST['captcha_code']);
 		if (!isset($captcha) || $securimage->check($captcha) == false) 
 			$error="کد امنیتی اشتباه است";
 		else
