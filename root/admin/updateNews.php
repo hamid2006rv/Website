@@ -6,7 +6,7 @@
 <?php
 	if(isset($_GET['id']))
 	{
-		$id=htmlspecialchars($_GET['id'],ENT_QUOTES);
+		$id=htmlspecialchars($_GET['id'],ENT_QUOTES, 'UTF-8');
 		$result=mysql_query("select * from news where eid=$id");
 		if($result && mysql_num_rows($result)==1)
 			{
@@ -17,9 +17,9 @@
 	}
     if(isset($_POST['save']))
 	{
-		$id=htmlspecialchars($_POST['id'],ENT_QUOTES);
-		$etitle=htmlspecialchars($_POST['etitle'],ENT_QUOTES);
-		$edesc=htmlspecialchars($_POST['edesc'],ENT_QUOTES);
+		$id=htmlspecialchars($_POST['id'],ENT_QUOTES,'UTF-8');
+		$etitle=htmlspecialchars($_POST['etitle'],ENT_QUOTES,'UTF-8');
+		$edesc=htmlspecialchars($_POST['edesc'],ENT_QUOTES,'UTF-8');
 		$sql="update news 
 				set etitle='$etitle',
 				    edesc='$edesc'

@@ -12,20 +12,20 @@
 			$hasTitle=0;
 			
 		if(isset($_POST['ctitle']))
-			$ctitle=htmlspecialchars($_POST['ctitle'],ENT_QUOTES);
+			$ctitle=htmlspecialchars($_POST['ctitle'],ENT_QUOTES,'UTF-8');
 		else
 			$ctitle='';
-		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES);
+		$cbody=htmlspecialchars($_POST['cbody'],ENT_QUOTES,'UTF-8');
 		
 	
 		if (isset($_POST['menu3']) && $_POST['menu3']!=-1)
-			$org=htmlspecialchars($_POST['menu3'],ENT_QUOTES);
+			$org=htmlspecialchars($_POST['menu3'],ENT_QUOTES,'UTF-8');
 			else
 				if (isset($_POST['menu2']) && $_POST['menu2']!=-1)
-				$org=htmlspecialchars($_POST['menu2'],ENT_QUOTES);
+				$org=htmlspecialchars($_POST['menu2'],ENT_QUOTES,'UTF-8');
 				else
 					if (isset($_POST['menu1']) && $_POST['menu1']!=-1)
-						$org=htmlspecialchars($_POST['menu1'],ENT_QUOTES);
+						$org=htmlspecialchars($_POST['menu1'],ENT_QUOTES,'UTF-8');
 						
 					
 		if(isset($_POST['collapse']))
@@ -34,7 +34,7 @@
 			$collapse=0;			
 			
 		
-		$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
+		$date=htmlspecialchars($_POST['date'],ENT_QUOTES,'UTF-8');
         $er=0;
 		//if (!isset($ntitle) || trim($ntitle)=='')
 		//	$er=$er | 0b00001;
@@ -293,13 +293,13 @@
 	if (isset($_GET['show'])):
 
 	if (isset($_GET['menux3']) && $_GET['menux3']!=-1)
-			$orgx=htmlspecialchars($_GET['menux3'],ENT_QUOTES);
+			$orgx=htmlspecialchars($_GET['menux3'],ENT_QUOTES,'UTF-8');
 			else
 				if (isset($_GET['menux2']) && $_GET['menux2']!=-1)
-				$orgx=htmlspecialchars($_GET['menux2'],ENT_QUOTES);
+				$orgx=htmlspecialchars($_GET['menux2'],ENT_QUOTES,'UTF-8');
 				else
 					if (isset($_GET['menux1']))
-						$orgx=htmlspecialchars($_GET['menux1'],ENT_QUOTES);
+						$orgx=htmlspecialchars($_GET['menux1'],ENT_QUOTES,'UTF-8');
 ?>
 	<table class='table' style='width:100%'>
 	<tr class='row'>

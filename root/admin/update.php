@@ -6,7 +6,7 @@
 <?php
 	if(isset($_GET['id']))
 	{
-		$nid=htmlspecialchars($_GET['id'],ENT_QUOTES);
+		$nid=htmlspecialchars($_GET['id'],ENT_QUOTES,'UTF-8');
 		$result=mysql_query("select * from notification where nid=$nid");
 		if($result && mysql_num_rows($result)==1)
 			{
@@ -24,10 +24,10 @@
 	}
     if(isset($_POST['save']))
 	{
-		$nid=htmlspecialchars($_POST['nid'],ENT_QUOTES);
-		$ntitle=htmlspecialchars($_POST['ntitle'],ENT_QUOTES);
-		$ndesc=htmlspecialchars($_POST['ndesc'],ENT_QUOTES);
-		$org=htmlspecialchars($_POST['org'],ENT_QUOTES);
+		$nid=htmlspecialchars($_POST['nid'],ENT_QUOTES,'UTF-8');
+		$ntitle=htmlspecialchars($_POST['ntitle'],ENT_QUOTES,'UTF-8');
+		$ndesc=htmlspecialchars($_POST['ndesc'],ENT_QUOTES,'UTF-8');
+		$org=htmlspecialchars($_POST['org'],ENT_QUOTES,'UTF-8');
 		$sql="update notification 
 				set ntitle='$ntitle',
 				    ndesc='$ndesc'

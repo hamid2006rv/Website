@@ -8,11 +8,11 @@
 	{
 		$day=date('N');
 		if(isset($_POST['etitle']))
-			$etitle=htmlspecialchars($_POST['etitle'],ENT_QUOTES);
+			$etitle=htmlspecialchars($_POST['etitle'],ENT_QUOTES,'UTF-8');
 		if(isset($_POST['edesc']))
-			$edesc=htmlspecialchars($_POST['edesc'],ENT_QUOTES);
+			$edesc=htmlspecialchars($_POST['edesc'],ENT_QUOTES,'UTF-8');
 		if(isset($_POST['date']))
-			$date=htmlspecialchars($_POST['date'],ENT_QUOTES);
+			$date=htmlspecialchars($_POST['date'],ENT_QUOTES,'UTF-8');
         $er=0;
 		if (!isset($etitle) || trim($etitle)=='')
 			$er=$er | 0b00001;
