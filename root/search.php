@@ -14,7 +14,7 @@
 						<?php
 							if(isset($_GET['submit']))
 							{
-								$search=htmlspecialchars($_GET['search'],ENT_QUOTES);
+								$search=strip_string($_GET['search']);
 								if(isset($search) && trim($search)!='')
 								{
 									$terms=explode(' ', $search);

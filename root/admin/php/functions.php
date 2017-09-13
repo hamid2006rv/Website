@@ -49,10 +49,10 @@
 
 if(isset($_POST['action']))
 {
-	$action=$_POST['action'];
+	$action=strip_string($_POST['action']);
 	if ($action==1)
 	{
-		$id=$_POST['id'];
+		$id=strip_string($_POST['id']);
 		
 		$result=mysql_query("delete from notification where nid=$id");
 		if($result)
@@ -64,7 +64,7 @@ if(isset($_POST['action']))
 	}
 	if ($action==2)
 	{
-		$id=$_POST['id'];
+		$id=strip_string($_POST['id']);
 		
 		$result=mysql_query("delete from content where cid=$id");
 		if($result)
@@ -76,7 +76,7 @@ if(isset($_POST['action']))
 	}
 	if ($action==3)
 	{
-		$id=$_POST['id'];
+		$id=strip_string($_POST['id']);
 		
 		$result=mysql_query("delete from news where eid=$id");
 		if($result)
@@ -88,7 +88,7 @@ if(isset($_POST['action']))
 	}
 	if ($action==4)
 	{
-		$id=$_POST['id'];
+		$id=strip_string($_POST['id']);
 		$data=array();
 		$result=mysql_query("select * from organization where top_id=$id");
 		if($result)
